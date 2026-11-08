@@ -1,0 +1,177 @@
+id,chapter,type,position,title,brief,cutaway,priority,status,file
+FM-M1,0,map,0,Endpaper map: the journey,"An original hand-drawn map of the whole journey in the edition's style: the Hill, the elf valley, the Misty Mountains, the Carrock, the great forest, the Long Lake and the Mountain. Compass rose, little vignettes of each stop, the snail at the edge.",n,A,planned,
+FM-P1,0,plate,0,Frontispiece: the burrow-home cutaway,"Single-page cutaway of a hillside burrow-home: round door, hall, parlour, kitchen, pantry, cellar, chimney, roots. STYLE STUDY made — replace or refine with the final version.",y,A,style-study,art/png/plate_burrow_cutaway.jpg
+FM-V1,0,vignette,0,Title-page vignette,"Round green door in a grassy hill, lantern, smoke from the chimney.",n,B,style-study,art/png/emblem_19.png
+O-01,1,opener,0,Chapter I opener,"Bramble banner; emblem: teapot, cups and seed-cake.",n,A,style-study,art/png/header_01.png
+P-01-01,1,plate,0.03,A fine morning at the round door,"The hobbit at his round green door on a bright morning; a tall old wizard in a pointed blue hat leaning on his staff at the garden gate; flowers, path, fence.",n,A,planned,
+S-01-01,1,spread,0.08,Cutaway: the hobbit-hole,"Double-page cross-section of the hobbit-hole: long tunnel-hall with pegs, many round-windowed rooms on one level, bedrooms, bathrooms, cellars, pantries (lots), wardrobes, kitchens, dining-rooms; the Hill above with a tree and chimney pots.",y,A,planned,
+I-01-01,1,inset,0.12,The mark on the door,The wizard scratching a small secret sign on the shiny green paint with the end of his staff.,n,B,planned,
+H-01-01,1,half,0.2,Hoods on the pegs,The hall filling up as dwarves arrive one and two at a time; coloured hoods hung on a row of pegs; the hobbit's astonished face.,n,A,planned,
+I-01-02,1,inset,0.28,The doorbell again,The flustered hobbit hurrying down the hall with a tray of cakes as the bell rings yet again.,n,B,planned,
+H-01-02,1,half,0.38,The great tea,"Dwarves round the table with seed-cake, jam, pies, cheese, cold chicken and pickles; the hobbit carrying more.",n,A,planned,
+I-01-03,1,inset,0.45,The washing-up,Dwarves tossing plates and juggling glasses as they wash up — nothing broken.,n,B,planned,
+P-01-02,1,plate,0.55,Music by the fire,"Dark room lit only by firelight; dwarves playing harps, fiddles, flutes, a drum, viols and a clarinet; deep shadows; the hobbit entranced.",n,A,planned,
+I-01-04,1,inset,0.65,Overcome on the hearthrug,The hobbit swooning dramatically on the hearthrug while dwarves peer down (comic).,n,C,planned,
+H-01-03,1,half,0.75,The map and the key,"The wizard spreading a parchment map by lamplight, pointing at a hidden door; a small key with an odd ward lying on it.",n,A,planned,
+I-01-05,1,inset,0.83,The key on its chain,Close-up: an old silver key on a fine chain.,n,C,planned,
+I-01-06,1,inset,0.92,Dreams in a small bed,"The hobbit asleep in a little round-windowed bedroom, dreaming of mountains.",n,B,planned,
+V-01,1,vignette,1,Tailpiece,Bramble tailpiece.,n,C,style-study,art/png/orn_tailpiece.png
+O-02,2,opener,0,Chapter II opener,Emblem: campfire with cooking pot on a tripod.,n,A,style-study,art/png/header_02.png
+H-02-01,2,half,0.05,Running down the lane,"The hobbit dashing out of his door without hat or handkerchief, breakfast things left on the table.",n,A,planned,
+I-02-01,2,inset,0.15,On the pony,"The hobbit bouncing on a laden pony, the dwarves' coloured hoods ahead.",n,B,planned,
+P-02-01,2,plate,0.27,Rain on the road,Grey rain over lonely hills; ponies trudging; dripping hoods; a ruined tower on a hill.,n,B,planned,
+I-02-02,2,inset,0.37,A light between the trees,A red firelight glimpsed through dark tree trunks.,n,C,planned,
+P-02-02,2,plate,0.5,Three trolls at their fire,"Three huge, dim, comic trolls round a fire roasting mutton on spits; the hobbit creeping up behind a tree (warm, funny, not scary).",n,A,planned,
+I-02-03,2,inset,0.6,The talking purse,A troll's purse squeaking out a complaint in the hobbit's hand.,n,C,planned,
+H-02-02,2,half,0.72,Dwarves in sacks,Trolls squabbling while dwarves wriggle in sacks on the ground.,n,B,planned,
+I-02-04,2,inset,0.82,Turned to stone,Dawn light on three stone trolls; a bird perched on a stone nose.,n,A,planned,
+H-02-03,2,half,0.92,The trolls' cave,"Inside the trolls' cave: pots of gold, food, old clothes and a pile of swords; a stone door ajar.",n,B,planned,
+V-02,2,vignette,1,Tailpiece,Bramble tailpiece.,n,C,style-study,art/png/orn_tailpiece.png
+O-03,3,opener,0,Chapter III opener,Emblem: open book with candle and crescent moon.,n,A,style-study,art/png/header_03.png
+P-03-01,3,plate,0.2,The hidden valley at dusk,"Looking down a steep path into a secret valley: a river, a waterfall, lanterns in the trees, the glow of a house.",n,A,planned,
+S-03-01,3,spread,0.45,Cutaway: the Last Homely House,"Cross-section of the elf-lord's house: hall of fire, kitchens and pantries, a library of maps, bedrooms, stables, terraces over the river.",y,A,planned,
+I-03-01,3,inset,0.6,Old swords with runes,"Two old swords and a knife laid on a table, runes along the blades.",n,B,planned,
+H-03-01,3,half,0.75,Moon-letters,Silver letters shining on the map under a crescent moon at a window.,n,A,planned,
+I-03-02,3,inset,0.9,Midsummer morning,Ponies re-shod and packs re-filled; the company riding out on a bright morning.,n,C,planned,
+V-03,3,vignette,1,Tailpiece,Bramble tailpiece.,n,C,style-study,art/png/orn_tailpiece.png
+O-04,4,opener,0,Chapter IV opener,Emblem: lantern in a stone arch.,n,A,style-study,art/png/header_04.png
+P-04-01,4,plate,0.15,Thunder-battle,A night storm in the high pass; vast misty stone-giants far across the valley hurling boulders; the company pressed against the cliff.,n,A,planned,
+I-04-01,4,inset,0.3,A dry cave,The company and ponies settling into a sheltering cave.,n,B,planned,
+H-04-01,4,half,0.4,The crack opens,A crack yawning in the back of the cave; ponies vanishing; shadowy goblin arms (comic-grotesque).,n,B,planned,
+S-04-01,4,spread,0.55,Cutaway: under the mountains,"Cross-section of the goblin tunnels: the great cavern with its fire, forges and clanking machines, chains, winding passages, hidden back door.",y,A,planned,
+I-04-02,4,inset,0.7,Blades that glow,Two old swords glowing blue in the dark.,n,B,planned,
+H-04-02,4,half,0.85,Running in the dark,"The dwarves fleeing down black tunnels, the hobbit carried on a dwarf's back.",n,B,planned,
+V-04,4,vignette,1,Tailpiece,Bramble tailpiece.,n,C,style-study,art/png/orn_tailpiece.png
+O-05,5,opener,0,Chapter V opener,Emblem: a gold ring on a stone by dark water.,n,A,style-study,art/png/header_05.png
+I-05-01,5,inset,0.05,Alone in the dark,"The hobbit sitting alone in pitch dark, his small sword glowing faintly.",n,B,planned,
+H-05-01,5,half,0.15,The underground lake,"A cold black lake, a tiny rocky island, a small boat paddled by a pale-eyed creature (kept in shadow).",n,A,planned,
+S-05-01,5,spread,0.3,Cutaway: down to the lake,Cross-section of tunnels sloping down to the lake cavern and its island; dripping stone; the hobbit's path.,y,A,planned,
+P-05-01,5,plate,0.45,The riddle game,"The hobbit, sword out, facing the creature perched on a rock with lamp-like eyes; black water between them.",n,A,planned,
+I-05-02,5,inset,0.52,Riddle vignette: a mountain,A mountain with roots and a cloud (visual riddle answer).,n,C,planned,
+I-05-03,5,inset,0.58,Riddle vignette: the wind,Leaves and seeds swirling on the wind.,n,C,planned,
+I-05-04,5,inset,0.64,Riddle vignette: an egg,A speckled egg in a nest.,n,C,planned,
+I-05-05,5,inset,0.7,Riddle vignette: a fish,A fish in dark water.,n,C,planned,
+I-05-06,5,inset,0.76,Riddle vignette: time,An hourglass with crumbling stone and a tiny tree.,n,C,planned,
+H-05-02,5,half,0.86,Squeezing through the door,"The invisible hobbit squeezing through a half-open door past goblin guards, brass buttons popping.",n,A,planned,
+I-05-07,5,inset,0.93,Lost buttons,Brass buttons scattered on a doorstep.,n,C,planned,
+V-05,5,vignette,1,Tailpiece,Bramble tailpiece.,n,C,style-study,art/png/orn_tailpiece.png
+O-06,6,opener,0,Chapter VI opener,Emblem: eagle feather and pine-cones.,n,A,style-study,art/png/header_06.png
+H-06-01,6,half,0.08,Daylight again,The hobbit blinking in sunshine on the mountainside; the dwarves arguing in a dell below.,n,B,planned,
+I-06-01,6,inset,0.2,Surprise!,The hobbit suddenly appearing among the dwarves (comic surprise).,n,B,planned,
+H-06-02,6,half,0.35,Down the scree,The company sliding down a slope of loose stones towards a pine wood.,n,B,planned,
+P-06-01,6,plate,0.5,Up the trees,Moonlit glade; the company clinging in the tops of fir trees; wolves circling below as shadows; a dwarf hanging from a branch.,n,A,planned,
+I-06-02,6,inset,0.6,Flaming pine-cones,The wizard hurling flaming pine-cones into the glade.,n,B,planned,
+P-06-02,6,plate,0.75,The eagles,Great eagles lifting the company from the burning trees into the dawn sky.,n,A,planned,
+H-06-03,6,half,0.88,The eyrie,A high rock shelf; a fire roasting supper; the wide land far below at sunset.,n,B,planned,
+V-06,6,vignette,1,Tailpiece,Bramble tailpiece.,n,C,style-study,art/png/orn_tailpiece.png
+O-07,7,opener,0,Chapter VII opener,Emblem: honey pot with bees.,n,A,style-study,art/png/header_07.png
+P-07-01,7,plate,0.05,The Carrock,Eagles setting the company down on a great rock in a river at morning.,n,B,planned,
+H-07-01,7,half,0.15,Bee-pastures,Walking through fields of clover and flowers with enormous bees and rows of hives.,n,A,planned,
+I-07-01,7,inset,0.2,A giant bee,"Close-up of a huge furry bee on a flower, the hobbit for scale.",n,B,planned,
+S-07-01,7,spread,0.3,Cutaway: the great wooden hall,"Cross-section of the farmstead: long timber hall with central hearth and carved pillars, sleeping platform, barns, dairy, honey stores, stalls, hives in the garden.",y,A,planned,
+H-07-02,7,half,0.4,Two at a time,Dwarves appearing at the door in pairs while the wizard tells his story.,n,B,planned,
+P-07-02,7,plate,0.5,Supper served by animals,"Dogs walking on hind legs and ponies and sheep carrying in tables, torches, honey, cream and bread.",n,A,planned,
+I-07-02,7,inset,0.62,Torches and tables,Animals bringing in torches and trestle tables (comic).,n,C,planned,
+I-07-03,7,inset,0.72,Night noises,The hobbit awake in bed; a great bear shadow on moonlit grass outside.,n,B,planned,
+H-07-03,7,half,0.82,A hearty breakfast,Morning: the host laughing at the head of the table; packs filled with food.,n,B,planned,
+I-07-04,7,inset,0.88,Honey-cakes,A basket of twice-baked honey-cakes and earthenware jars.,n,C,planned,
+H-07-04,7,half,0.95,The forest gate,The dark arch where the path enters the great forest; ponies being sent home.,n,A,planned,
+V-07,7,vignette,1,Tailpiece,Bramble tailpiece.,n,C,style-study,art/png/orn_tailpiece.png
+O-08,8,opener,0,Chapter VIII opener,Emblem: dewy spider-web.,n,A,style-study,art/png/header_08.png
+P-08-01,8,plate,0.05,Inside the forest,A dim green tunnel of trees; black squirrels; glinting eyes in the dark; the path.,n,A,planned,
+I-08-01,8,inset,0.12,The black stream,A dark enchanted stream with a little boat on the far bank.,n,B,planned,
+H-08-01,8,half,0.18,Hauling the boat,Pulling the boat across with a rope; one dwarf toppling into the water.,n,B,planned,
+I-08-02,8,inset,0.25,A sleeping dwarf,Carrying a fast-asleep stout dwarf on a stretcher of branches.,n,C,planned,
+I-08-03,8,inset,0.32,Climbing for a look,The hobbit climbing a tall tree towards the light.,n,B,planned,
+P-08-02,8,plate,0.38,Above the leaves,The hobbit's head poking out above a sea of leaves; velvety black butterflies in sunshine.,n,A,planned,
+H-08-02,8,half,0.45,Feast in a glade,An elvish feast by torchlight in a clearing; dwarves stumbling in as the lights go out.,n,B,planned,
+I-08-04,8,inset,0.55,Naming the sword,"The hobbit alone, sword raised, having beaten off a spider (spider comic).",n,A,planned,
+P-08-03,8,plate,0.65,The spider colony,Dwarves wrapped in silk bundles hanging from branches; cartoonish spiders; the hobbit throwing stones from the shadows.,n,A,planned,
+I-08-05,8,inset,0.72,Taunting songs,Spiders fuming as the invisible hobbit sings rude rhymes (comic).,n,C,planned,
+H-08-03,8,half,0.8,Cutting them free,The hobbit slashing silk; dazed dwarves tumbling out.,n,B,planned,
+I-08-06,8,inset,0.9,Lost and weary,The company in an exhausted circle; one place empty.,n,C,planned,
+V-08,8,vignette,1,Tailpiece,Bramble tailpiece.,n,C,style-study,art/png/orn_tailpiece.png
+O-09,9,opener,0,Chapter IX opener,Emblem: a barrel with apples.,n,A,style-study,art/png/header_09.png
+H-09-01,9,half,0.08,Into the elf-king's halls,Dwarves marched over a bridge into great cave gates by torchlight.,n,B,planned,
+S-09-01,9,spread,0.25,Cutaway: halls and cellars,"Cross-section of the elf-king's caves: halls, dungeon cells, wine cellars, the trapdoor over the underground river, the water-gate. (Single-page style study made: plate_cellar_mechanism.)",y,A,style-study,art/png/plate_cellar_mechanism.jpg
+I-09-01,9,inset,0.35,Sneaking unseen,The invisible hobbit's shadow slipping along a torch-lit corridor.,n,C,planned,
+I-09-02,9,inset,0.45,Asleep over the wine,The butler and the guard asleep at a table over flagons; keys on the belt.,n,B,planned,
+H-09-02,9,half,0.55,Packing the barrels,Dwarves being packed into barrels with straw (comic); lids being hammered.,n,A,planned,
+P-09-01,9,plate,0.7,Down the trapdoor,Barrels tumbling through the trapdoor into the river below; the hobbit grabbing the last one.,n,A,planned,
+P-09-02,9,plate,0.85,Riding the river,Barrels bobbing down a misty forest river at dawn; the hobbit astride one.,n,A,planned,
+I-09-03,9,inset,0.95,Ashore,Barrels bumping into the shallows near a lake town.,n,C,planned,
+V-09,9,vignette,1,Tailpiece,Bramble tailpiece.,n,C,style-study,art/png/orn_tailpiece.png
+O-10,10,opener,0,Chapter X opener,Emblem: rowing boat and reeds.,n,A,style-study,art/png/header_10.png
+P-10-01,10,plate,0.1,The town on the lake,A wooden town on stilts on a long lake; the lonely Mountain far beyond.,n,A,planned,
+S-10-01,10,spread,0.3,Cutaway: the stilt town,"Cross-section of the lake town: houses on piles, walkways, market, warehouses, boats moored beneath, the Master's hall.",y,A,planned,
+H-10-01,10,half,0.5,A surprising announcement,A dwarf in a feasting hall declaring who he is; astonished townsfolk.,n,B,planned,
+I-10-01,10,inset,0.7,A dreadful cold,"The hobbit sneezing by a fire, wrapped in blankets (comic).",n,C,planned,
+H-10-02,10,half,0.9,Off up the lake,Boats loaded with supplies setting out; crowds waving from the walkways.,n,B,planned,
+V-10,10,vignette,1,Tailpiece,Bramble tailpiece.,n,C,style-study,art/png/orn_tailpiece.png
+O-11,11,opener,0,Chapter XI opener,Emblem: a key and a snail on a stone.,n,A,style-study,art/png/header_11.png
+H-11-01,11,half,0.15,The desolation,"A bare, burned valley; ruins of a town; the Mountain looming.",n,B,planned,
+P-11-01,11,plate,0.4,The hidden bay,A grassy ledge and smooth rock wall high on the mountainside; the hobbit gazing west.,n,A,planned,
+I-11-01,11,inset,0.6,The thrush and the snail,A thrush knocking a snail on a grey stone (the snail motif's big moment).,n,A,planned,
+P-11-02,11,plate,0.82,The keyhole,The last ray of sunset lighting a keyhole on the rock wall; the key turning.,n,A,planned,
+V-11,11,vignette,1,Tailpiece,Bramble tailpiece.,n,C,style-study,art/png/orn_tailpiece.png
+O-12,12,opener,0,Chapter XII opener,Emblem: goblet and coins.,n,A,style-study,art/png/header_12.png
+H-12-01,12,half,0.08,Down the tunnel,The hobbit creeping alone down a long tunnel towards a red glow.,n,A,planned,
+S-12-01,12,spread,0.2,Cutaway: inside the Mountain,"Cross-section of the Mountain: secret door and tunnel, great treasure hall with the sleeping dragon, old dwarf halls, stairs, forges, the river and front gate.",y,A,planned,
+P-12-01,12,plate,0.32,The sleeping dragon,"A vast red-gold dragon asleep on a mountain of treasure in a warm glow (majestic, not frightening).",n,A,planned,
+I-12-01,12,inset,0.42,The two-handled cup,The hobbit staggering off with a great two-handled cup.,n,B,planned,
+I-12-02,12,inset,0.55,Smoke and rage,Billowing smoke and a flash of fire from the mountainside (no figures hurt).,n,C,planned,
+H-12-02,12,half,0.7,A riddling conversation,"The invisible hobbit talking to the dragon, who has one eye open amid the gold.",n,A,planned,
+I-12-03,12,inset,0.8,A bare patch,The dragon's jewel-crusted belly with one bare patch (look-for detail).,n,B,planned,
+H-12-03,12,half,0.93,Fire on the doorstep,Dwarves diving into the tunnel as fire blasts the ledge; the door closing.,n,B,planned,
+V-12,12,vignette,1,Tailpiece,Bramble tailpiece.,n,C,style-study,art/png/orn_tailpiece.png
+O-13,13,opener,0,Chapter XIII opener,Emblem: a candle and its long shadow.,n,A,style-study,art/png/header_13.png
+I-13-01,13,inset,0.1,A flickering torch,The hobbit in pitch dark holding up a flickering torch.,n,B,planned,
+H-13-01,13,half,0.3,The great white gem,The empty treasure hall glinting; the hobbit finding a glowing white gem.,n,A,planned,
+I-13-02,13,inset,0.42,Into the pocket,The gem glinting from the hobbit's pocket (look-for).,n,C,planned,
+P-13-01,13,plate,0.56,Choosing armour,Dwarves trying on helmets and mail; a small shining mail-coat for the hobbit (costume-fitting fun).,n,A,planned,
+H-13-02,13,half,0.75,The old halls,"Climbing great stairs through crumbling, carved dwarf halls by torchlight.",n,B,planned,
+I-13-03,13,inset,0.9,The old look-out,Camping in a ruined guard-post above the river valley.,n,C,planned,
+V-13,13,vignette,1,Tailpiece,Bramble tailpiece.,n,C,style-study,art/png/orn_tailpiece.png
+O-14,14,opener,0,Chapter XIV opener,Emblem: a single black-feathered arrow under a crescent moon.,n,A,style-study,art/png/header_14.png
+P-14-01,14,plate,0.25,Dragon over the lake town,"Night; the dragon descending on the lake town; lamps, bells, boats (dramatic, no injuries shown).",n,A,planned,
+I-14-01,14,inset,0.4,The thrush's message,"A thrush perched on an archer's shoulder, whispering.",n,A,planned,
+H-14-01,14,half,0.55,The black arrow,An arrow in flight; the dragon falling towards the lake in a great cloud of steam.,n,A,planned,
+I-14-02,14,inset,0.7,Steam and sparks,Steam and sparks rising over dark water.,n,C,planned,
+H-14-02,14,half,0.86,On the shore,Townsfolk sheltering in tents on the shore; elves arriving with food and help.,n,B,planned,
+V-14,14,vignette,1,Tailpiece,Bramble tailpiece.,n,C,style-study,art/png/orn_tailpiece.png
+O-15,15,opener,0,Chapter XV opener,Emblem: a thrush on a twig.,n,A,style-study,art/png/header_15.png
+H-15-01,15,half,0.15,The old raven,An ancient raven on a stone talking with the dwarves.,n,A,planned,
+I-15-01,15,inset,0.3,Birds on the wing,Flocks of birds streaming across the valley.,n,C,planned,
+P-15-01,15,plate,0.5,Building the wall,Dwarves building a stone wall across the great front gate.,n,B,planned,
+H-15-02,15,half,0.75,Camp in the valley,Campfires of men and elves in the valley below at dusk.,n,B,planned,
+I-15-02,15,inset,0.9,A parley,Messengers at the foot of the wall with a horn and banner.,n,C,planned,
+V-15,15,vignette,1,Tailpiece,Bramble tailpiece.,n,C,style-study,art/png/orn_tailpiece.png
+O-16,16,opener,0,Chapter XVI opener,Emblem: a glowing white gem.,n,A,style-study,art/png/header_16.png
+H-16-01,16,half,0.2,Down the rope,The hobbit climbing down the wall on a rope at night.,n,A,planned,
+P-16-01,16,plate,0.5,The gift in the tent,"In a lantern-lit tent, the hobbit unwrapping the white gem before an elf-king and a bowman.",n,A,planned,
+I-16-01,16,inset,0.85,An old friend,The wizard rising from a corner of the tent with a twinkle.,n,B,planned,
+V-16,16,vignette,1,Tailpiece,Bramble tailpiece.,n,C,style-study,art/png/orn_tailpiece.png
+O-17,17,opener,0,Chapter XVII opener,Emblem: a round wooden shield and spears.,n,A,style-study,art/png/header_17.png
+H-17-01,17,half,0.15,An army over the hills,A host of dwarves marching over the eastern hills.,n,B,planned,
+P-17-01,17,plate,0.4,The valley under storm,The battle seen from far above as a panorama under a darkening sky (no gore).,n,A,planned,
+I-17-01,17,inset,0.55,On the lookout hill,The invisible hobbit watching from a rocky hill.,n,B,planned,
+P-17-02,17,plate,0.75,The eagles are coming,Great eagles sweeping in against storm clouds lit by the setting sun.,n,A,planned,
+I-17-02,17,inset,0.9,A knock on the helmet,"A small stone bouncing off the hobbit's helmet (soft, comic).",n,C,planned,
+V-17,17,vignette,1,Tailpiece,Bramble tailpiece.,n,C,style-study,art/png/orn_tailpiece.png
+O-18,18,opener,0,Chapter XVIII opener,Emblem: a traveller's pack and walking stick.,n,A,style-study,art/png/header_18.png
+H-18-01,18,half,0.15,Farewell by candlelight,"A quiet farewell in a candle-lit tent between old companions (gentle, no injuries shown).",n,A,planned,
+I-18-01,18,inset,0.35,A memorial stone,A stone in the mountain's heart with flowers laid on it.,n,C,planned,
+P-18-01,18,plate,0.6,Homeward in spring,"The hobbit on a pony with two small chests, riding through spring woodland with the wizard.",n,A,planned,
+I-18-02,18,inset,0.8,Yule in the great hall,A cosy winter feast in the great wooden hall; snow outside.,n,B,planned,
+H-18-02,18,half,0.95,The road home,The green road winding home through spring country.,n,B,planned,
+V-18,18,vignette,1,Tailpiece,Bramble tailpiece.,n,C,style-study,art/png/orn_tailpiece.png
+O-19,19,opener,0,Chapter XIX opener,"Emblem: the round green door, home again.",n,A,style-study,art/png/header_19.png
+P-19-01,19,plate,0.1,Back in the hidden valley,Night in the elf valley; elves singing in the trees; the travellers arriving.,n,B,planned,
+I-19-01,19,inset,0.3,The buried gold,Digging up a pot of troll-gold under a tree.,n,C,planned,
+H-19-01,19,half,0.5,The auction,The hobbit arriving home to find his furniture being auctioned on the lawn (comic).,n,A,planned,
+S-19-01,19,spread,0.65,Cutaway: the hobbit-hole set to rights,"Cross-section of the hobbit-hole put back in order: treasure chests in the cellar, a study with maps, the sword over the mantel, memoirs on the desk.",y,A,planned,
+P-19-02,19,plate,0.85,Tea with old friends,"Years later: the wizard and a white-bearded dwarf visiting, tea by the fire.",n,A,planned,
+I-19-02,19,inset,0.95,A jar on the table,Laughter round a jar on the tea-table (closing image).,n,C,planned,
+V-19,19,vignette,1,Finis,Large closing tailpiece with the snail.,n,B,style-study,art/png/orn_tailpiece.png
+BM-P1,99,plate,0,Did you find the snail?,Back-matter page of small thumbnails of each plate with the snail circled.,n,B,planned,
+BM-M1,99,map,0,Back endpaper,"Mirror of the front map, or a hedgerow pattern sheet.",n,C,planned,

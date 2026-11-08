@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+output/.notes-cache/
+art/svg/
+*.tmp

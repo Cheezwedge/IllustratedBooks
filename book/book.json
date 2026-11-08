@@ -1,0 +1,20 @@
+{
+  "title": "The Hobbit",
+  "subtitle": "or There and Back Again",
+  "author": "J. R. R. Tolkien",
+  "illustrator": "[Illustrator Name]",
+  "publisher": "[Your Imprint]",
+  "city": "[City], New Zealand",
+  "year": "2027",
+  "text_source": "the first edition of 1937",
+  "territories": "New Zealand",
+  "isbn": {
+    "hardback": "978-0-000000-00-0",
+    "paperback": "978-0-000000-01-7",
+    "epub": "978-0-000000-02-4"
+  },
+  "printer": "[Printer name], [City], New Zealand",
+  "dedication": "For [name],\nwho always looks for the snail.",
+  "placeholder_scale": 1.0,
+  "show_placeholder_briefs": true
+}
