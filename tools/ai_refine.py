@@ -152,9 +152,12 @@ def fit_to_print(img, w_in, h_in, dpi=300):
 
 def generate(args):
     plan = load_plan()
-    if args.id not in plan:
-        raise SystemExit(f"unknown id {args.id}; see plan/illustrations.csv")
-    item = plan[args.id]
+    if args.id in plan:
+        item = dict(plan[args.id])
+    elif args.guide and args.brief:
+        item = {"id": args.id, "type": args.type, "title": args.title or args.id, "brief": args.brief, "file": ""}
+    else:
+        raise SystemExit(f"unknown id {args.id}; use a plan ID, or give --guide, --brief (and --type/--title) for an ad-hoc piece")
     guide = args.guide or (os.path.join(ROOT, item["file"]) if item.get("file") else None)
     if guide and not os.path.exists(guide):
         guide = None
@@ -230,9 +233,17 @@ def main():
     ap.add_argument("--variants", type=int, default=1)
     ap.add_argument("--extra", default="", help="extra instructions appended to the prompt")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--check", action="store_true", help="test that the API key works")
+    ap.add_argument("--type", default="half", choices=list(SIZES), help="ad-hoc piece: size class")
+    ap.add_argument("--title", help="ad-hoc piece: title")
+    ap.add_argument("--brief", help="ad-hoc piece: scene description")
     ap.add_argument("--promote", help="copy a chosen art/ai/<ID>__vN.png into art/final/")
     a = ap.parse_args()
-    if a.list_models:
+    if a.check:
+        res = call("/models?pageSize=200", method="GET")
+        img = [m["name"].split("/")[-1] for m in res.get("models", []) if "image" in m["name"]]
+        print(f"API key OK: {len(res.get('models', []))} models visible; image-capable: {', '.join(img) or 'none listed'}")
+    elif a.list_models:
         list_models()
     elif a.promote:
         promote(a.promote)
