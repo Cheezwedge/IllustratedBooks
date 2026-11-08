@@ -149,3 +149,14 @@ The pieces in `art/png/` are painted by code: `art/src/wc.py` is a small raster 
 2. If you use an image model on a GPU service, use these renders as **image-to-image starting points** (composition locked, model adds finish at a low denoising strength), then paint over by hand. Follow §2.10, and keep your layered files.
 
 Art painted by this code (or by any AI tool) counts as **AI-generated** for platform disclosure. It may not be protected by copyright in some countries (see rights doc §1.7). The "original illustrations" that differentiate the edition are safest when a human makes or substantially reworks them.
+
+### AI finishing pass (optional): `tools/ai_refine.py`
+
+From this cloud workspace the **Google Gemini API** is reachable, and its image models can repaint a supplied picture. `tools/ai_refine.py`:
+
+- sends a style-study render as the composition guide, plus optional character sheets as `--ref`;
+- builds the prompt from §2.2 and the scene brief, with no artist or series names;
+- fits the result to the exact print size at 300 dpi;
+- logs every generation in `art/ai/log.csv` for disclosure.
+
+Review the variants, paint over by hand, and `--promote` the chosen one into `art/final/`. You need your own Gemini API key, stored as an environment secret and never in the repository. Check Google's current pricing and terms.

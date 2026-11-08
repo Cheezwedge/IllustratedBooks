@@ -70,6 +70,8 @@ Quick low-resolution previews:
 WC_DPI=100 python3 art/src/build_art.py
 ```
 
+**AI finishing pass (optional):** `tools/ai_refine.py` repaints a style-study render with a Gemini image model while keeping its composition. It needs a Gemini API key; see the art bible, end of §2.11.
+
 **Adding finished art:** save it as `art/final/<ID>.png` or `.jpg` (e.g. `art/final/P-05-01.jpg`) at the size given in the art bible §2.8 and rebuild. It replaces the labelled placeholder automatically.
 
 **Adding the text:** save `book/text/01.md` to `book/text/19.md` and rebuild. Every illustration re-flows to its scene.
