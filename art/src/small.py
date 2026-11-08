@@ -3,7 +3,8 @@
 All transparent-background so they sit directly on the page.
 """
 import math
-from kit import Doc, PAL, INK, INK_SOFT, ellipse_pts, blob, rect_pts, arch_pts, line_pts, transform_pts
+from kit import PAL, INK, INK_SOFT, ellipse_pts, blob, rect_pts, arch_pts, line_pts, transform_pts
+from wc import Canvas as Doc
 import objects as O
 
 
@@ -379,15 +380,13 @@ def chapter_header(path, chapter_idx, numeral):
     for k in range(24):
         a = 2 * math.pi * k / 24
         d.dot(cx + 79 * math.cos(a), cy + 79 * math.sin(a), 1.0, PAL["berry"])
-    # emblem drawn into a clipped 160 box scaled to the roundel
-    sub = Doc(1.6, 1.6, seed=200 + chapter_idx, paper=False)
-    sub.layers = []
-    EMBLEMS[chapter_idx](sub, 80, 80)
-    cid = d.clip(ellipse_pts(cx, cy, 75, 75, 40))
-    d.defs += [x for x in sub.defs[1:]]  # gradients defined by the emblem (filters shared)
-    inner = "".join(x for x in sub.layers if isinstance(x, str))
+    # emblem drawn into the roundel, clipped
     s = 0.9
-    d.add(f'<g clip-path="url(#{cid})"><g transform="translate({cx - 80 * s},{cy - 80 * s}) scale({s})">{inner}</g></g>')
+    d.push_clip(ellipse_pts(cx, cy, 75, 75, 40))
+    d.push_transform(cx - 80 * s, cy - 80 * s, s)
+    EMBLEMS[chapter_idx](d, 80, 80)
+    d.pop_transform()
+    d.pop_clip()
     # numeral ribbon
     rib = [(cx - 34, cy + 70), (cx + 34, cy + 70), (cx + 40, cy + 82), (cx + 34, cy + 94), (cx - 34, cy + 94), (cx - 40, cy + 82)]
     d.shape(rib, "#efe2c2", 0.98, w=1.0, smooth_=False)
@@ -402,131 +401,310 @@ def emblem(path, idx):
 
 
 # ================================================================ critters
+# Small natural-history studies: drawn as a naturalist would, not as cartoons.
+import detail as D  # noqa: E402
+
+
+def _leaf_veined(d, x, y, L, ang, col=None, wdt=0.5, serr=True):
+    col = col or d.choice(D.LEAF_MID)
+    pts = []
+    n = 16
+    for i in range(n + 1):
+        t = i / n
+        w = math.sin(math.pi * t) ** 0.85 * L * wdt / 2 * (1 + (0.06 if serr and i % 2 else 0))
+        pts.append((t * L, w))
+    for i in range(n - 1, 0, -1):
+        t = i / n
+        w = math.sin(math.pi * t) ** 0.85 * L * wdt / 2 * (1 + (0.06 if serr and i % 2 else 0))
+        pts.append((t * L, -w))
+    P = transform_pts(pts, x, y, 1, ang)
+    d.shape(P, col, 0.88, w=0.5, shade=0.6)
+    d.ink(transform_pts([(0, 0), (L * 0.5, 0.4), (L * 0.95, 0)], x, y, 1, ang), 0.4, INK_SOFT, op=0.8)
+    for k in range(1, 6):
+        t = k / 6.5
+        for sgn in (-1, 1):
+            d.ink(transform_pts([(L * t, 0), (L * (t + 0.12), sgn * L * wdt * 0.32 * math.sin(math.pi * t))], x, y, 1, ang), 0.3, INK_SOFT, op=0.6)
+
+
 def cr_snail(d):
-    d.shape(ellipse_pts(42, 32, 16, 14, 20), "#c98f4f", 0.95, w=1.0)
-    spiral = [(42 + (t / 3) * math.cos(t * 0.9), 32 + (t / 3) * math.sin(t * 0.9)) for t in range(1, 40)]
-    d.ink(spiral, 0.8, INK)
-    d.shape([(20, 47), (66, 47), (76, 34), (70, 36), (60, 44)], "#c7b9a0", 0.95, w=0.9)
-    d.ink([(70, 38), (74, 24)], 0.8, INK)
-    d.ink([(73, 38), (80, 27)], 0.8, INK)
-    d.dot(74, 23, 1.4)
-    d.dot(80, 26, 1.4)
-    d.ink([(10, 50), (30, 49)], 0.6, PAL["white"], op=0.8)
+    x, y = 40, 34
+    d.shape(ellipse_pts(x, y, 15, 13.5, 30), "#d8b27a", 0.92, w=0.8, shade=0.8)
+    for band, col in ((0.85, "#7a4a2a"), (0.55, "#9a6a3a"), (0.3, "#7a4a2a")):
+        d.ink([(x + 15 * band * (1 - t / 40) * math.cos(t * 0.33), y + 13.5 * band * (1 - t / 40) * math.sin(t * 0.33)) for t in range(0, 30)],
+              1.6, col, op=0.7)
+    d.ink([(x + (t / 3.2) * math.cos(t * 0.75), y + (t / 3.6) * math.sin(t * 0.75)) for t in range(1, 44)], 0.6, INK)
+    d.ink(ellipse_pts(x - 5, y - 6, 4, 2.5, 8, a0=3.3, a1=4.8), 1.0, "#fff4dc", op=0.8)
+    body = [(18, 48), (30, 47), (56, 48), (68, 45), (78, 36), (75, 40), (64, 44)]
+    d.shape(body + [(40, 50), (20, 50)], "#cdbb9c", 0.92, w=0.6, shade=0.6)
+    for k in range(12):
+        d.dot(26 + k * 4, 48 + d.r(1), 0.35, INK_SOFT, 0.7)
+    for ex, ey, tx, ty in ((74, 38, 77, 24), (77, 39, 84, 27)):
+        d.ink([(ex, ey), ((ex + tx) / 2 + 1, (ey + ty) / 2), (tx, ty)], 0.6, "#8a7a62")
+        d.dot(tx, ty, 1.1, "#4a3a2a")
+    d.ink([(4, 51), (20, 50.5)], 0.6, "#c7d6dc", op=0.8)
 
 
 def cr_ladybird(d):
-    O.leaf(d, 10, 44, 70, -0.3, PAL["leaf"])
-    d.shape(ellipse_pts(46, 30, 12, 10, 16), PAL["red"], 0.95, w=0.9)
-    d.line(46, 20, 46, 40, 0.8, INK, 0)
-    for x, y in ((40, 26), (52, 26), (41, 34), (51, 34)):
-        d.dot(x, y, 1.8)
-    d.shape(ellipse_pts(57, 30, 4, 5, 10), "#2f2f2f", 0.95, w=0.6)
+    _leaf_veined(d, 6, 46, 74, -0.32, "#86a557", 0.42)
+    x, y = 46, 31
+    d.shape(ellipse_pts(x, y, 11, 9, 24), "#c8382c", 0.95, w=0.7, shade=0.8)
+    d.line(x, y - 9, x + 1, y + 9, 0.6, INK, 0)
+    for sx, sy, r in ((-5, -3, 2.0), (5, -2, 2.0), (-4, 4, 1.6), (6, 4, 1.6), (0, -6, 1.3)):
+        d.wash(ellipse_pts(x + sx, y + sy, r, r, 10), "#2a2220", 0.92)
+    d.shape(ellipse_pts(x + 11, y + 1, 4.2, 4.8, 12), "#2a2220", 0.95, w=0.5)
+    d.dot(x + 12, y - 1.5, 0.9, "#f3efe6")
+    d.ink(ellipse_pts(x - 4, y - 5, 4, 2, 8, a0=3.4, a1=4.7), 1.0, "#ffffff", op=0.85)
+    for k in range(3):
+        d.ink([(x - 4 + k * 4, y + 8), (x - 6 + k * 4, y + 12)], 0.45, INK)
 
 
 def cr_bee(d):
-    bee(d, 45, 34, 2.6)
-    d.ink([(4, 50), (16, 44), (10, 38), (22, 36), (28, 40)], 0.6, INK_SOFT, op=0.7, dash="2 2")
+    x, y = 46, 36
+    for k, (col, w_) in enumerate((("#2a2420", 9), ("#e3b43a", 10), ("#2a2420", 10), ("#e3b43a", 9), ("#f1e8d8", 7))):
+        cx = x - 14 + k * 6.5
+        d.wash(ellipse_pts(cx, y, 5, w_, 14), col, 0.9, shade=0.6, hatch=False)
+        for _ in range(28):
+            a = d.u(0, 2 * math.pi)
+            r0 = d.u(0.3, 0.95)
+            px, py = cx + 4 * r0 * math.cos(a), y + w_ * r0 * math.sin(a)
+            d.ink([(px, py), (px + 2.2 * math.cos(a), py + 2.2 * math.sin(a))], 0.35, col if col != "#f1e8d8" else "#b9ab90", op=0.85, jitter=0.1)
+    d.shape(ellipse_pts(x - 20, y + 1, 5, 6, 12), "#2a2420", 0.95, w=0.5)
+    d.dot(x - 22, y - 1, 0.8, "#f3efe6")
+    for k in (-1, 1):
+        d.ink([(x - 23, y - 3), (x - 28, y - 9 - k), (x - 31, y - 8 - k * 2)], 0.45, INK)
+    for k, (wx, wy, rot) in enumerate(((x - 4, y - 14, -0.5), (x + 4, y - 13, -0.15))):
+        wing = ellipse_pts(wx, wy, 11, 5, 18, rot=rot)
+        d.wash(wing, "#e6eef2", 0.55, hatch=False, edge=0.8)
+        d.ink(wing, 0.35, INK_SOFT, True, op=0.7)
+        d.ink([(wx - 8 * math.cos(rot), wy - 8 * math.sin(rot)), (wx + 6 * math.cos(rot), wy + 6 * math.sin(rot) + 2)], 0.25, INK_SOFT, op=0.6)
+    for k in range(3):
+        d.ink([(x - 10 + k * 6, y + 9), (x - 12 + k * 6, y + 15), (x - 14 + k * 6, y + 17)], 0.45, INK)
 
 
 def cr_butterfly(d):
     cx, cy = 45, 34
-    for s in (-1, 1):
-        d.shape(blob(cx + s * 13, cy - 8, 13, 11, d.rng, 0.1, 12, rot=s * 0.5), PAL["blue"], 0.92, w=0.8)
-        d.shape(blob(cx + s * 10, cy + 9, 8, 7, d.rng, 0.1, 10, rot=-s * 0.4), PAL["lav"], 0.92, w=0.8)
-        d.dot(cx + s * 14, cy - 9, 2.4, PAL["white"])
-    d.shape(ellipse_pts(cx, cy, 2.4, 11, 10), INK, 0.95, w=0.5)
-    d.ink([(cx, cy - 10), (cx - 6, cy - 22)], 0.6, INK)
-    d.ink([(cx, cy - 10), (cx + 6, cy - 22)], 0.6, INK)
+    for sgn in (-1, 1):
+        fw = transform_pts([(0, 0), (8, -12), (20, -20), (26, -14), (22, -2), (6, 2)], cx, cy - 2, 1, 0) if sgn > 0 else \
+            transform_pts([(0, 0), (-8, -12), (-20, -20), (-26, -14), (-22, -2), (-6, 2)], cx, cy - 2, 1, 0)
+        hw = [(cx, cy), (cx + sgn * 6, cy + 2), (cx + sgn * 16, cy + 6), (cx + sgn * 15, cy + 15), (cx + sgn * 8, cy + 16), (cx + sgn * 2, cy + 8)]
+        d.shape(fw, "#c75a32", 0.9, w=0.6, shade=0.5)
+        d.shape(hw, "#b8503a", 0.9, w=0.6, shade=0.5)
+        # eye-spots and dark margins like a peacock butterfly
+        ex, ey = cx + sgn * 18, cy - 13
+        d.wash(ellipse_pts(ex, ey, 4.4, 3.6, 14), "#2f2a3a", 0.9)
+        d.wash(ellipse_pts(ex, ey, 2.8, 2.2, 12), "#6f86b8", 0.9)
+        d.dot(ex, ey, 0.9, "#f3efe6")
+        hx, hy = cx + sgn * 11, cy + 10
+        d.wash(ellipse_pts(hx, hy, 3.6, 3.0, 12), "#2f2a3a", 0.85)
+        d.wash(ellipse_pts(hx, hy, 2.0, 1.6, 10), "#7f94c8", 0.85)
+        for k in range(4):
+            d.ink([(cx + sgn * 2, cy - 1), (cx + sgn * (10 + k * 4), cy - 8 - k * 3)], 0.3, INK_SOFT, op=0.6)
+        d.ink(fw[2:5], 1.4, "#3a2a26", op=0.6)
+    d.shape(ellipse_pts(cx, cy + 3, 1.8, 9, 12), "#3a2e28", 0.95, w=0.4)
+    for sgn in (-1, 1):
+        d.ink([(cx, cy - 5), (cx + sgn * 5, cy - 15), (cx + sgn * 7, cy - 19)], 0.4, INK)
+        d.dot(cx + sgn * 7, cy - 19, 0.8)
 
 
 def cr_beetle(d):
     cx, cy = 45, 36
     for k in range(3):
-        for s in (-1, 1):
-            d.ink([(cx + s * 7, cy - 4 + k * 7), (cx + s * 15, cy - 6 + k * 8), (cx + s * 18, cy + k * 8)], 0.8, INK)
-    d.shape(ellipse_pts(cx, cy + 4, 11, 15, 18), "#3d5a4a", 0.95, w=1.0)
-    d.line(cx, cy - 10, cx, cy + 18, 0.8, INK, 0)
-    d.shape(ellipse_pts(cx, cy - 14, 6, 5, 12), "#2f3f36", 0.95, w=0.8)
-    d.ink([(cx - 6, cy + 2), (cx - 3, cy - 6)], 1, "#9fc0aa", op=0.8)
+        for sgn in (-1, 1):
+            d.ink([(cx + sgn * 6, cy - 3 + k * 6), (cx + sgn * 13, cy - 6 + k * 7), (cx + sgn * 17, cy + k * 8)], 0.6, INK)
+    d.shape(ellipse_pts(cx, cy + 4, 10, 14, 26), "#3f6150", 0.94, w=0.7, shade=0.9)
+    d.line(cx, cy - 9, cx, cy + 18, 0.6, INK, 0)
+    for k in range(4):
+        d.ink([(cx - 6 + k * 1.2, cy - 6), (cx - 6.5 + k * 1.2, cy + 14)], 0.3, "#9fc0aa", op=0.6)
+        d.ink([(cx + 2.5 + k * 1.2, cy - 6), (cx + 2 + k * 1.2, cy + 14)], 0.3, "#9fc0aa", op=0.6)
+    d.shape(ellipse_pts(cx, cy - 12, 6, 4.6, 14), "#2f4a3c", 0.95, w=0.6)
+    d.shape(ellipse_pts(cx, cy - 17.5, 3.5, 2.8, 10), "#2a3a32", 0.95, w=0.5)
+    for sgn in (-1, 1):
+        d.ink([(cx + sgn * 2, cy - 19), (cx + sgn * 5, cy - 25), (cx + sgn * 8, cy - 27)], 0.4, INK)
+    d.ink(ellipse_pts(cx - 4, cy - 2, 3, 6, 10, a0=3.4, a1=4.8), 1.2, "#d6ecd8", op=0.7)
 
 
 def cr_acorns(d):
-    d.ink([(14, 14), (34, 20), (56, 18)], 1.6, PAL["wooddk"])
-    O.oak_leaf(d, 52, 18, 30, 0.2)
-    O.acorn(d, 30, 28, 1.3, 0.2)
-    O.acorn(d, 46, 32, 1.2, -0.3)
+    d.ink([(12, 14), (34, 20), (58, 17)], 1.4, "#7a5534")
+    O.oak_leaf(d, 52, 16, 30, 0.25, "#93a85a")
+    O.oak_leaf(d, 20, 16, 22, -2.6, "#b9a14b")
+    O.acorn(d, 30, 29, 1.3, 0.2)
+    O.acorn(d, 46, 33, 1.2, -0.3)
 
 
 def cr_mushrooms(d):
     O.mushroom(d, 34, 58, 1.6, PAL["red"])
     O.mushroom(d, 58, 58, 1.0, "#c8894a", lean=0.3)
-    O.tufts(d, [(14, 58), (76, 58)], every=5, h=7)
+    d.shape(blob(48, 59, 30, 2.5, d.rng, 0.1, 12), "#9a8a5a", 0.6, w=0)
+    D.blades(d, [(14, 59), (80, 59)], every=2.0, h=(3, 8))
 
 
 def cr_berries(d):
-    d.ink([(10, 20), (30, 26), (54, 22), (76, 30)], 1.8, "#7a4a3a")
-    leaf_cluster(d, 26, 26, -1.2)
-    leaf_cluster(d, 60, 24, 1.6)
-    berry_cluster(d, 38, 34, 1.4)
-    berry_cluster(d, 70, 38, 1.1)
-    O.flower(d, 18, 34, 6, "pink")
+    d.ink([(8, 18), (30, 24), (52, 20), (80, 28)], 1.6, "#8a4a4a")
+    for k in range(6):
+        d.ink([(12 + k * 11, 21 + (k % 2)), (13 + k * 11, 19)], 0.5, "#8a4a4a")
+    _leaf_veined(d, 24, 23, 22, -1.9, d.choice(D.LEAF_MID), 0.55)
+    _leaf_veined(d, 58, 22, 20, -1.0, d.choice(D.LEAF_DARK), 0.55)
+    for bx, by, ripe in ((36, 36, 1.0), (50, 34, 1.0), (68, 40, 0.5), (22, 36, 0.0)):
+        d.ink([(bx, by - 8), (bx, by - 3)], 0.5, "#6b8c45")
+        for k in range(10):
+            a = k * 2 * math.pi / 7
+            r_ = 2.4 if k < 7 else 0
+            px, py = bx + r_ * math.cos(a) + d.r(0.4), by + r_ * math.sin(a) * 1.15 + (k - 7) * 1.6 * (k >= 7)
+            col = "#3a2238" if ripe > 0.8 else ("#a8334a" if ripe > 0.3 else "#b9c46a")
+            d.shape(ellipse_pts(px, py, 1.9, 1.9, 10), col, 0.95, w=0.3, shade=0.8)
+            d.dot(px - 0.6, py - 0.7, 0.45, "#ffffff", 0.85)
+    O.flower(d, 76, 18, 5, "pink")
 
 
 def cr_daisies(d):
     for x, y, h in ((26, 20, 40), (46, 28, 32), (64, 18, 42)):
-        d.ink([(x, y), (x + d.r(3), y + h * 0.5), (x + d.r(2), 60)], 1.0, PAL["leafdk"])
-        O.flower(d, x, y, 7, "daisy")
-    O.leaf(d, 40, 56, 16, -2.6)
-    O.leaf(d, 50, 56, 16, -0.5)
+        d.ink([(x, y), (x + d.r(3), y + h * 0.5), (x + d.r(2), 60)], 0.9, "#6b8c45")
+        D.wildflower(d, x, y + 0.5, "daisy", 2.3) if False else None
+        for k in range(13):
+            a = k * 2 * math.pi / 13
+            p = D.leaf_shape(x, y, 7, a, 0.36, 5)
+            d.wash(p, "#fffdf6", 1.0, jitter=0.05)
+            d.ink(p, 0.3, "#9a8f7a", True, op=0.6, jitter=0.05)
+            if k % 3 == 0:
+                d.ink([(x + 2 * math.cos(a), y + 2 * math.sin(a)), (x + 6 * math.cos(a), y + 6 * math.sin(a))], 0.4, "#e9a8b0", op=0.6)
+        d.shape(ellipse_pts(x, y, 2.4, 2.4, 12), "#e3b43a", 0.95, w=0.4, shade=0.8)
+    _leaf_veined(d, 40, 58, 14, -2.6, None, 0.4)
+    _leaf_veined(d, 50, 58, 14, -0.5, None, 0.4)
 
 
 def cr_bluebells(d):
     stem = [(30, 62), (34, 34), (44, 16), (58, 12)]
-    d.ink(stem, 1.2, PAL["leafdk"])
+    d.ink(stem, 1.0, "#6b8c45")
     for k, (x, y) in enumerate(((40, 22), (46, 18), (52, 15), (36, 30), (34, 40))):
-        d.ink([(x, y), (x + 3, y + 6)], 0.6, PAL["leafdk"])
-        d.shape([(x - 1, y + 5), (x - 2, y + 13), (x + 1, y + 15), (x + 4, y + 13), (x + 7, y + 15), (x + 8, y + 12), (x + 6, y + 5)],
-                PAL["blue"], 0.92, w=0.7)
-    O.leaf(d, 30, 62, 34, -1.3, PAL["leaf"], wdt=0.22)
-    O.leaf(d, 32, 62, 30, -1.9, PAL["leafdk"], wdt=0.22)
+        d.ink([(x, y), (x + 3, y + 6)], 0.5, "#6b8c45")
+        bell = [(x - 1, y + 5), (x - 2, y + 13), (x + 0.5, y + 15.5), (x + 3, y + 13.5), (x + 5.5, y + 15.5), (x + 8, y + 12), (x + 6, y + 5)]
+        d.shape(bell, "#6f86c8", 0.9, w=0.5, shade=0.8)
+        d.ink([(x + 2, y + 7), (x + 2.5, y + 13)], 0.3, "#3a4a7a", op=0.6)
+    O.leaf(d, 30, 62, 34, -1.3, "#7d9d50", wdt=0.2)
+    O.leaf(d, 32, 62, 30, -1.9, "#5e7e3e", wdt=0.2)
 
 
 def cr_fern(d):
     spine = [(14, 60), (30, 40), (50, 24), (76, 14)]
-    d.ink(spine, 1.2, PAL["leafdk"])
-    for k in range(1, 10):
-        t = k / 10
+    d.ink(spine, 1.0, "#6b8c45")
+    for k in range(1, 12):
+        t = k / 12
         x = 14 + 62 * t
         y = 60 - 46 * t + 4 * math.sin(t * 3)
-        L = 16 * (1 - t * 0.7)
-        O.leaf(d, x, y, L, -2.2, PAL["leaf"], wdt=0.35, vein=False, ink_w=0.5)
-        O.leaf(d, x, y, L, 0.3, PAL["leaflt"], wdt=0.35, vein=False, ink_w=0.5)
+        L = 15 * (1 - t * 0.7)
+        for sgn, base in ((-1, -2.2), (1, 0.4)):
+            a = base
+            for j in range(4):
+                tt = (j + 1) / 5
+                px, py = x + L * tt * math.cos(a), y + L * tt * math.sin(a)
+                d.wash(D.leaf_shape(px, py, L * 0.28, a + sgn * 1.2, 0.6, 4), d.choice(D.LEAF_MID + D.LEAF_LIGHT), 0.88, jitter=0.05)
+            d.ink([(x, y), (x + L * math.cos(a), y + L * math.sin(a))], 0.35, "#6b8c45", op=0.9)
 
 
 def cr_oakleaf(d):
     O.oak_leaf(d, 14, 40, 56, -0.4, "#c9a14b")
+    d.wash(ellipse_pts(36, 34, 8, 5, 12), "#a8743f", 0.35, soft=True)
     O.acorn(d, 66, 46, 1.1, 0.4)
 
 
 def cr_feather(d):
-    d.ink([(14, 58), (40, 36), (74, 12)], 1.2, "#f2e6cc")
+    spine = lambda t: (12 + 64 * t, 60 - 50 * t + 4 * math.sin(t * 3))  # noqa: E731
     left, right = [], []
-    for k in range(1, 12):
-        t = k / 12
-        x, y = 14 + 60 * t, 58 - 46 * t
-        w = 9 * math.sin(math.pi * t)
-        left.append((x - w * 0.6, y - w * 0.8))
-        right.append((x + w * 0.6, y + w * 0.8))
-    d.shape([(14, 58)] + left + [(74, 12)] + right[::-1], "#a9a9b8", 0.9, w=0.9)
-    d.ink([(14, 58), (74, 12)], 0.9, "#f2e6cc")
+    for k in range(0, 31):
+        t = k / 30
+        x, y = spine(t)
+        w = 10 * math.sin(math.pi * min(1, t * 1.08)) + 0.5
+        left.append((x - w * 0.55, y - w * 0.85))
+        right.append((x + w * 0.62, y + w * 0.7))
+    d.shape([spine(0)] + left + [spine(1)] + right[::-1], "#a07a52", 0.9, w=0.6, shade=0.7)
+    for k in range(3, 29, 4):       # darker bars across the vane
+        t = k / 30
+        x, y = spine(t)
+        w = 10 * math.sin(math.pi * min(1, t * 1.08))
+        d.wash([(x - w * 0.55, y - w * 0.85), (x - w * 0.4 + 2.5, y - w * 0.85 - 1.5), (x + w * 0.62 + 2.5, y + w * 0.7 - 1.5),
+                (x + w * 0.62, y + w * 0.7)], "#5a4030", 0.55, jitter=0.2, hatch=False)
+    for k in range(1, 30):
+        t = k / 30
+        x, y = spine(t)
+        w = 10 * math.sin(math.pi * min(1, t * 1.08))
+        d.ink([(x, y), (x - w * 0.55, y - w * 0.85)], 0.3, "#4a3426", op=0.5, jitter=0.05)
+        d.ink([(x, y), (x + w * 0.62, y + w * 0.7)], 0.3, "#4a3426", op=0.5, jitter=0.05)
+    for k in range(6):
+        d.ink([(13 + k, 58 - k * 1.2), (10 + k * 1.5, 52 - k)], 0.4, "#c9b9a0", op=0.8)
+    d.ink([spine(t / 20) for t in range(21)], 0.9, "#efe4cc")
+
+
+def cr_strawberries(d):
+    d.ink([(10, 60), (24, 40), (40, 28)], 0.8, "#6b8c45")
+    for k, (lx, ly, a) in enumerate(((40, 28, -1.2), (40, 28, -0.4), (40, 28, 0.4))):
+        _leaf_veined(d, lx, ly, 18, a, None, 0.62)
+    for bx, by in ((22, 44), (34, 50), (14, 52)):
+        d.ink([(24, 40), (bx, by - 6)], 0.5, "#6b8c45")
+        berry = [(bx - 4, by - 5), (bx + 4, by - 5), (bx + 3.5, by + 1), (bx, by + 6), (bx - 3.5, by + 1)]
+        d.shape(berry, "#d23c35", 0.95, w=0.5, shade=0.8)
+        for k in range(10):
+            d.dot(bx + d.r(3), by + d.u(-4, 3), 0.35, "#f6e7a6", 0.95)
+        for k in range(5):
+            a = -math.pi / 2 + (k - 2) * 0.6
+            d.ink([(bx, by - 5), (bx + 4 * math.cos(a + math.pi), by - 5 + 2.5 * math.sin(a + math.pi))], 0.6, "#5e7e3e")
+    d.dot(28, 37, 1.6, "#ffffff")
+    for k in range(5):
+        a = k * 2 * math.pi / 5
+        d.wash(ellipse_pts(54 + 2.4 * math.cos(a), 46 + 2.4 * math.sin(a), 2.2, 2.2, 8), "#fffdf6", 1.0, jitter=0.05)
+    d.dot(54, 46, 0.9, "#e3c43a")
+
+
+def cr_rosehips(d):
+    d.ink([(8, 52), (34, 34), (60, 26), (82, 20)], 1.4, "#7a4a3a")
+    for k in range(5):
+        x = 16 + k * 14
+        d.ink([(x, 47 - k * 5.5), (x - 1, 44 - k * 5.5)], 0.5, "#7a4a3a")
+    for (hx, hy) in ((30, 46), (52, 38), (70, 32)):
+        d.ink([(hx, hy - 9), (hx - 1, hy - 4)], 0.5, "#6b5a3a")
+        d.shape(ellipse_pts(hx, hy, 4, 6, 16), "#d0472f", 0.95, w=0.5, shade=0.8)
+        d.dot(hx - 1.2, hy - 2, 0.8, "#ffffff", 0.85)
+        for k in range(4):
+            d.ink([(hx, hy + 6), (hx - 3 + k * 2, hy + 9)], 0.4, "#3a2a20")
+    _leaf_veined(d, 40, 30, 14, -1.3, None, 0.55)
+    _leaf_veined(d, 64, 25, 12, -2.0, None, 0.55)
+
+
+def cr_hazelnuts(d):
+    for (hx, hy, a) in ((32, 38, -0.3), (52, 42, 0.4)):
+        husk = transform_pts([(-9, -4), (-6, -11), (0, -14), (6, -11), (9, -4), (5, -6), (0, -9), (-5, -6)], hx, hy, 1, a)
+        nut = ellipse_pts(hx, hy + 2, 7.5, 8.5, 22, rot=a)
+        d.shape(nut, "#a8743f", 0.94, w=0.6, shade=0.8)
+        d.wash(ellipse_pts(hx + 1, hy + 7, 4.5, 2.5, 12, rot=a), "#d8c39a", 0.9)
+        for k in range(4):
+            d.ink([(hx - 4 + k * 2.5, hy - 3), (hx - 3.5 + k * 2.5, hy + 7)], 0.3, "#6e4a2c", op=0.6)
+        d.shape(husk, "#9db06a", 0.9, w=0.6, shade=0.5)
+    _leaf_veined(d, 20, 22, 28, -0.3, None, 0.75)
+
+
+def cr_dragonfly(d):
+    cx, cy = 34, 30
+    for k in range(9):
+        d.shape(ellipse_pts(cx + 6 + k * 4.4, cy + 2 + k * 0.5, 2.2, 1.6, 10), "#3f7f9a" if k % 2 else "#4f9ab0", 0.92, w=0.35)
+    d.shape(ellipse_pts(cx, cy, 4, 3.2, 12), "#3f7f9a", 0.95, w=0.5, shade=0.7)
+    d.shape(ellipse_pts(cx - 5, cy - 0.5, 2.8, 2.8, 10), "#2f6a80", 0.95, w=0.5)
+    d.dot(cx - 6, cy - 1.5, 0.7, "#ffffff")
+    for (dx, dy, L, a) in ((0, -1, 26, -1.9), (0, -1, 24, -1.35), (2, 1, 24, 1.95), (2, 1, 22, 1.4)):
+        wing = D.leaf_shape(cx + dx, cy + dy, L, a, 0.26, 8)
+        d.wash(wing, "#e3eef0", 0.5, hatch=False, edge=0.9)
+        d.ink(wing, 0.3, INK_SOFT, True, op=0.7)
+        for k in range(1, 6):
+            t = k / 6
+            px, py = cx + dx + L * t * math.cos(a), cy + dy + L * t * math.sin(a)
+            d.ink([(px - 2 * math.cos(a + 1.57), py - 2 * math.sin(a + 1.57)), (px + 2 * math.cos(a + 1.57), py + 2 * math.sin(a + 1.57))], 0.2, INK_SOFT, op=0.5)
 
 
 CRITTERS = [cr_snail, cr_ladybird, cr_bee, cr_butterfly, cr_beetle, cr_acorns, cr_mushrooms, cr_berries, cr_daisies,
-            cr_bluebells, cr_fern, cr_oakleaf, cr_feather]
+            cr_bluebells, cr_fern, cr_oakleaf, cr_feather, cr_strawberries, cr_rosehips, cr_hazelnuts, cr_dragonfly]
 
 
 def critter(path, idx):
     d = Doc(0.9, 0.7, seed=400 + idx, paper=False)
+    d.push_transform(0, 0, 1.0)
     CRITTERS[idx](d)
     d.save(path)
 

@@ -119,3 +119,33 @@ File naming: `art/final/<ID>.png`, e.g. `art/final/P-05-01.png`. The build picks
 **Example prompt (scene P-09-01):**
 
 > Children's classic book illustration, full page, portrait. Thirteen small travellers bobbing down a fast forest river inside wooden barrels, only their hooded heads poking out, one small figure clinging on top of a barrel. Beech and oak forest banks, morning light through mist, water splashes. Fine sepia pen line, soft transparent watercolour washes on warm cream paper, slight granulation, botanically accurate plants, gentle humour, storybook warmth. A tiny brown snail riding on one barrel lid.
+
+## 2.11 How the style-study art is made, and its limits
+
+The pieces in `art/png/` are painted by code: `art/src/wc.py` is a small raster watercolour engine. It imitates the physical behaviour of the medium:
+
+- **Transparent glazes:** each wash multiplies the paint beneath it, so colours mix and deepen like real pigment layers.
+- **Wet edges:** the wash edge wanders slightly, and pigment pools along it as it dries.
+- **Granulation:** pigment settles into the hollows of a cold-press paper surface.
+- **Mottling:** washes are uneven in density.
+- **Modelling:** every form is darker away from a light at the upper left, with fine pen hatching on the shadow side.
+- **Pen work:** lines are fine and tapered, sometimes broken, with a faint pencil under-drawing.
+- **Reserved whites:** highlights are bare paper.
+- **Vignettes:** spot illustrations fade softly into the page.
+
+`art/src/detail.py` holds the high-detail motifs:
+
+- tree crowns built leaf by leaf
+- grass blades and wildflowers
+- wood grain, flagstones and gingham
+- patterned crockery, preserves, herb bunches, netted hams
+- an inglenook fire
+
+**What it is good for:** it fixes the look of the edition: palette, line weight, density, cutaway conventions, page decoration. It also gives an illustrator, or an image tool, an exact layout to work over.
+
+**What it is not:** no procedural code reaches the draughtsmanship of a master hand-painted picture book. That means observed form, characterful faces and hands, the hundred small decisions in every object. For a commercial edition at that level:
+
+1. Commission an illustrator with this bible and these style studies as the brief, **or**
+2. If you use an image model on a GPU service, use these renders as **image-to-image starting points** (composition locked, model adds finish at a low denoising strength), then paint over by hand. Follow §2.10, and keep your layered files.
+
+Art painted by this code (or by any AI tool) counts as **AI-generated** for platform disclosure. It may not be protected by copyright in some countries (see rights doc §1.7). The "original illustrations" that differentiate the edition are safest when a human makes or substantially reworks them.

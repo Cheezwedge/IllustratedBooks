@@ -742,7 +742,7 @@ HarperCollins, Middle-earth Enterprises, or the makers of any film or other adap
 illustrate the story this way. Keep it in your own words; do not reproduce forewords or notes from other editions.]</p>
 <p>[An optional paragraph for young readers: there is a small brown snail hidden in every big picture. Can you find them all?
 The answers are at the back of the book.]</p>
-<p style="text-align:center"><img src="{file_url(a("critter_02.png"))}" style="width:0.9in;height:0.7in"/></p></div>''')
+<p style="text-align:center;margin-top:0.25in"><img src="{file_url(a("half_pantry_vignette.png"))}" style="width:5.5in;height:4in"/></p></div>''')
     out.append("MAPSPREAD")
     out.append("</section>")
     return "\n".join(out)

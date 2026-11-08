@@ -364,9 +364,10 @@ def rug(d, cx, y, w, h, c1=None, c2=None):
 def barrel_side(d, x, y, w, h, color=None, hoops=PAL["stonedk"], label=False):
     """Upright barrel, (x,y) = bottom-centre."""
     color = color or PAL["wood"]
-    bulge = w * 0.09
-    pts = [(x - w / 2, y), (x - w / 2 - bulge, y - h / 2), (x - w / 2, y - h), (x + w / 2, y - h),
-           (x + w / 2 + bulge, y - h / 2), (x + w / 2, y)]
+    bulge = w * 0.14
+    pts = [(x - w / 2, y), (x - w / 2 - bulge * 0.7, y - h * 0.25), (x - w / 2 - bulge, y - h / 2), (x - w / 2 - bulge * 0.7, y - h * 0.75),
+           (x - w / 2, y - h), (x + w / 2, y - h), (x + w / 2 + bulge * 0.7, y - h * 0.75), (x + w / 2 + bulge, y - h / 2),
+           (x + w / 2 + bulge * 0.7, y - h * 0.25), (x + w / 2, y)]
     d.shape(pts, color, 0.88, w=1.1)
     # staves
     for k in range(1, 5):
@@ -377,9 +378,10 @@ def barrel_side(d, x, y, w, h, color=None, hoops=PAL["stonedk"], label=False):
     for hy in (0.12, 0.3, 0.7, 0.88):
         yy = y - h * hy
         bb = bulge * math.sin(math.pi * hy)
-        d.ink([(x - w / 2 - bb, yy), (x, yy + 2), (x + w / 2 + bb, yy)], 1.4, hoops, op=0.95)
+        d.ink([(x - w / 2 - bb, yy), (x, yy + 2), (x + w / 2 + bb, yy)], 2.6, "#5f5a54", op=0.95)
     d.wash([(x + w * 0.15, y - 3), (x + w / 2 + bulge * 0.8, y - h / 2), (x + w * 0.2, y - h + 3)], PAL["shadow"], 0.25)
-    d.ink(ellipse_pts(x, y - h, w / 2, w * 0.08, 16, a0=math.pi, a1=2 * math.pi), 0.8, INK, op=0.9)
+    d.shape(ellipse_pts(x, y - h, w / 2, w * 0.1, 18), "#c99a62", 0.9, w=0.6)
+    d.ink(ellipse_pts(x, y - h, w / 2 * 0.8, w * 0.07, 16), 0.4, INK_SOFT, True, op=0.7)
 
 
 def barrel_end(d, cx, cy, r, color=None, tap=False):
@@ -687,8 +689,8 @@ def smoke(d, x, y, h, w=10):
         t = k / 4
         d.wash(blob(x + math.sin(t * 4) * w, y - t * h, w * (0.6 + t), w * (0.5 + t * 0.8), d.rng, 0.2, 10),
                "#c9ccc9", 0.5 - t * 0.35, soft=True)
-    pts = [(x + math.sin(i / 8 * 5) * w * 0.8, y - i / 8 * h) for i in range(9)]
-    d.ink(pts, 0.6, INK_SOFT, op=0.35)
+    pts = [(x + math.sin(i / 8 * 5) * w * 0.8, y - i / 8 * h * 0.45) for i in range(9)]
+    d.ink(pts, 0.4, INK_SOFT, op=0.15)
 
 
 def pots_rail(d, x, y, w):

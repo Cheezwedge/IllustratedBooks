@@ -7,15 +7,16 @@ Back: the same evening meadow continuing, quiet enough to carry the blurb.
 Each panel is 7.125 x 10.25in (7x10 trim + bleed on three sides).
 """
 import math
-from kit import Doc, PAL, INK, INK_SOFT, ellipse_pts, blob, rect_pts, line_pts
+from kit import PAL, INK, INK_SOFT, ellipse_pts, blob, rect_pts, line_pts
+from wc import Canvas as Doc
 import objects as O
 import small
+import detail as D
 
 
 def sky(d, W, H):
-    g = d.linear([(0, "#9fbcd0", 1), (0.45, "#e9e2c8", 1), (0.62, "#f6dca8", 1), (1, "#f6dca8", 1)])
-    d.add(f'<rect x="0" y="0" width="{W}" height="{H}" fill="url(#{g})"/>')
-    d.add(f'<rect x="0" y="0" width="{W}" height="{H}" filter="url(#paperf2)" opacity="0.35"/>')
+    d.wash_gradient([(-10, -10), (W + 10, -10), (W + 10, H + 10), (-10, H + 10)],
+                    [(0, "#9fbcd0"), (0.45, "#e9e2c8"), (0.62, "#f6dca8"), (1, "#f6dca8")], 0, 0, 0, H, op=0.8, soft=True)
 
 
 def hills(d, W, base, layers):
@@ -46,7 +47,7 @@ def build_front(path):
     d.ink(right, 0.8, INK_SOFT)
     # hedgerows & small trees along the hills
     for x, y, r in ((150, 600, 30), (620, 620, 26), (560, 680, 34), (90, 660, 22), (640, 560, 18)):
-        O.foliage_cluster(d, x, y, r * 1.4, r, n=8, leaves=20)
+        D.leafy_mass(d, x, y, r * 1.4, r, clumps=6, leaves=160, leaf_len=(3, 5))
     # the hill-home, lower left
     hill = [(-20, 1040), (-20, 760), (40, 730), (140, 712), (240, 724), (320, 770), (360, 840), (350, 1040)]
     d.shape(hill, PAL["grass"], 0.95, w=1.2)
@@ -62,7 +63,7 @@ def build_front(path):
     d.shape(rect_pts(240, 930, 70, 7), PAL["woodlt"], 0.9, w=0.9, smooth_=False)
     for lx in (246, 302):
         d.line(lx, 937, lx, 958, 1.6, PAL["wooddk"], 0)
-    O.tufts(d, hill[1:7], every=6, h=10, flowers=0.2)
+    D.meadow(d, hill[1:7], density=0.8, flowers=0.3, h=(5, 12))
     # chimney with smoke on top of the hill
     d.shape(rect_pts(196, 690, 22, 30, 10), "#b9704e", 0.95, w=1.0, smooth_=False)
     O.smoke(d, 207, 680, 120, 10)
@@ -72,12 +73,11 @@ def build_front(path):
         x = d.u(-10, 330)
         y = d.u(950, 1020)
         O.flower(d, x, y, d.u(3, 6))
-    O.tufts(d, [(-20, 1000), (360, 990)], every=4, h=16, flowers=0.2)
+    D.meadow(d, [(-20, 1000), (360, 990)], density=1.0, flowers=0.5, h=(10, 22))
+    D.foxglove(d, 330, 1010, 70)
+    D.foxglove(d, 352, 1016, 56)
     # framing tree on the right with brambles
-    O.tree_trunk(d, 668, 1040, 400, 92, lean=-12)
-    d.ink([(650, 520), (590, 440), (530, 400)], 6, PAL["wooddk"])
-    O.foliage_cluster(d, 620, 330, 160, 120, n=22, leaves=160)
-    O.foliage_cluster(d, 520, 410, 70, 40, n=8, leaves=30)
+    D.oak_tree(d, 690, 1040, 470, 70, 240, 175, lean=-20, leaves=3600)
     small.bramble_branch(d, 700, 760, 560, 900, -1)
     small.bramble_branch(d, 690, 900, 520, 1000, -1)
     # foreground mushrooms & snail
@@ -93,12 +93,11 @@ def build_back(path):
     O.cloud(d, 240, 140, 160, 36)
     hills(d, W, 760, [(600, 14, "#b7c4a6", 0.85), (660, 16, "#a3b97e", 0.9), (740, 18, PAL["grass3"], 0.92), (820, 14, PAL["grass"], 0.95)])
     for x, y, r in ((560, 640, 30), (380, 700, 24), (120, 680, 18)):
-        O.foliage_cluster(d, x, y, r * 1.4, r, n=8, leaves=20)
-    O.tree_trunk(d, 30, 1040, 500, 84, lean=12)
-    O.foliage_cluster(d, 70, 430, 140, 110, n=20, leaves=140)
+        D.leafy_mass(d, x, y, r * 1.4, r, clumps=6, leaves=160, leaf_len=(3, 5))
+    D.oak_tree(d, 20, 1040, 500, 64, 220, 165, lean=18, leaves=3200)
     for k in range(50):
         O.flower(d, d.u(0, W), d.u(940, 1020), d.u(3, 6))
-    O.tufts(d, [(-20, 960), (W + 20, 950)], every=4, h=18, flowers=0.2)
+    D.meadow(d, [(-20, 960), (W + 20, 950)], density=1.0, flowers=0.5, h=(10, 22))
     small.bramble_branch(d, 20, 1000, 300, 960, 1)
     for x in (600, 630):
         O.mushroom(d, x, 1000, 1.2)

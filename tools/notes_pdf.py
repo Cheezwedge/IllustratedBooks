@@ -95,13 +95,15 @@ li {{ margin-bottom: 2pt; }}
          'settings, objects and decorations only. Characters are deliberately left for your own designs (art bible §2.6).</p>']
     g.append(f'<div class="gal two"><img src="{f(PNG + "/plate_burrow_cutaway.jpg")}"/><img src="{f(PNG + "/plate_cellar_mechanism.jpg")}"/>'
              '<div class="cap">Full-page plates: the hillside burrow-home cutaway (frontispiece) and the barrel-cellar mechanism.</div></div>')
+    g.append(f'<h2>Close-up spot illustration</h2><div class="gal"><img src="{f(PNG + "/half_pantry_vignette.png")}" style="width:150mm"/>'
+             '<div class="cap">Half-page vignette at twice the cutaway scale, fading softly into the page: where the small domestic detail lives.</div></div>')
     heads = "".join(f'<img src="{f(p)}" style="width:56mm"/>' for p in sorted(glob.glob(PNG + "/header_*.png")))
     g.append(f'<h2>Chapter openers</h2><div class="gal">{heads}<div class="cap">Nineteen bramble banners with chapter emblems.</div></div>')
     crit = "".join(f'<img src="{f(p)}" style="width:24mm"/>' for p in sorted(glob.glob(PNG + "/critter_*.png")))
     orn = "".join(f'<img src="{f(PNG + "/" + n)}" style="height:{h}"/>' for n, h in
                   (("orn_tailpiece.png", "16mm"), ("orn_section.png", "8mm"), ("orn_corner.png", "26mm")))
     dc = "".join(f'<img src="{f(PNG + "/dropcap_" + c + ".png")}" style="width:17mm"/>' for c in "ABCDEFGHIJKLM")
-    g.append(f'<h2>Margin critters, ornaments and drop caps</h2><div class="gal">{crit}<div class="cap">Margin critters (stamped on pages with no other art).</div>'
+    g.append(f'<h2>Margin critters, ornaments and drop caps</h2><div class="gal">{crit}<div class="cap">Natural-history margin studies (stamped on pages with no other art).</div>'
              f'{orn}<div class="cap">Tailpiece, section break, corner vine.</div>{dc}<div class="cap">Illuminated drop caps (A–Z rendered).</div></div>')
     if os.path.exists(os.path.join(OUT, "cover-guides.pdf")):
         cov = page_png(os.path.join(OUT, "cover-guides.pdf"), 1, 1600, "cover.png")

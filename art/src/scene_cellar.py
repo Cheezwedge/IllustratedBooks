@@ -5,7 +5,8 @@ counterweighted trapdoor lever, barrel chute and a portcullis water-gate,
 all in cross-section.  7.125 x 10.25in (7x10 page + bleed).
 """
 import math
-from kit import Doc, PAL, INK, INK_SOFT, ellipse_pts, blob, rect_pts, arch_pts, line_pts, inside
+from kit import PAL, INK, INK_SOFT, ellipse_pts, blob, rect_pts, arch_pts, line_pts, inside
+from wc import Canvas as Doc
 import objects as O
 
 
@@ -14,8 +15,7 @@ def build(path):
     d = Doc(7.125, 10.25, seed=21)
 
     # ------------------------------------------------ forest floor at top
-    sky = d.linear([(0, "#dfe6d6", 1), (1, "#c9d7c0", 1)])
-    d.add(f'<rect x="0" y="0" width="{W}" height="140" fill="url(#{sky})"/>')
+    d.wash_gradient([(-10, -10), (W + 10, -10), (W + 10, 140), (-10, 140)], [(0, "#dfe6d6"), (1, "#c9d7c0")], 0, 0, 0, 140, op=0.8, soft=True)
     for tx, tw in ((70, 46), (250, 60), (520, 52), (660, 40)):
         O.tree_trunk(d, tx, 112, -20, tw)
         d.wash([(tx - tw * 0.4, 0), (tx + tw * 0.4, 0), (tx + tw * 0.3, 100), (tx - tw * 0.3, 100)], "#9a9a8a", 0.35)
@@ -54,14 +54,13 @@ def build(path):
     ctop, cfloor = 168, 520
     vault = arch_pts(cx0, ctop, cx1 - cx0, cfloor - ctop, 110, 24)
     d.wash([(x + (x - 357) * 0.025, y + (y - 344) * 0.04) for x, y in vault], "#5e5243", 0.9)
-    cid = d.clip(vault)
-    d.begin(f'clip-path="url(#{cid})"')
+    d.push_clip(vault)
     O.stone_wall(d, cx0 - 10, ctop - 10, cx1 - cx0 + 20, cfloor - ctop + 10, course=22,
                  colors=["#d9ccb4", "#cbbd9f", "#e2d6bf", "#c4b496"], mortar="#efe3c8", ink_op=0.45)
     d.wash(ellipse_pts(357, 380, 330, 170, 24), "#fbe7b5", 0.4, soft=True)
     d.wash([(cx0, ctop + 60), (cx0 + 60, ctop + 40), (cx0 + 40, cfloor), (cx0, cfloor)], PAL["shadow"], 0.25, soft=True)
     d.wash([(cx1, ctop + 60), (cx1 - 60, ctop + 40), (cx1 - 40, cfloor), (cx1, cfloor)], PAL["shadow"], 0.25, soft=True)
-    d.end()
+    d.pop_clip()
     d.ink(vault, 1.8, INK, closed=True)
     # vault ribs
     # floor
@@ -148,8 +147,7 @@ def build(path):
     # --------------------------------------------- underground river cave
     cave = [(-20, 600), (60, 572), (160, 566), (260, 580), (360, 576), (460, 584), (560, 570), (640, 590), (740, 580),
             (740, 900), (640, 920), (520, 915), (400, 930), (280, 920), (160, 928), (60, 915), (-20, 925)]
-    cg = d.linear([(0, "#4f5b5d", 1), (0.6, "#6f7d79", 1), (1, "#a7b8a6", 1)], 0, 0, 1, 0)
-    d.add(f'<path d="{__import__("kit").smooth(cave, True)}" fill="url(#{cg})" filter="url(#wash)"/>')
+    d.wash_gradient(cave, [(0, "#4f5b5d"), (0.6, "#6f7d79"), (1, "#a7b8a6")], 0, 0, W, 0, op=0.9, smooth_=True)
     O.mottle(d, cave, ["#3f4a4c", "#7f8c86"], n=18, rmin=30, rmax=70, op=0.3)
     d.ink(cave[:9], 1.6, INK)
     d.ink(cave[9:], 1.6, INK)
@@ -173,8 +171,7 @@ def build(path):
     # water
     water_top = 728
     water = [(-20, water_top)] + [(x, water_top + 3 * math.sin(x / 25)) for x in range(0, 740, 20)] + [(740, 905), (-20, 915)]
-    wg = d.linear([(0, "#4f7d8c", 1), (0.7, "#6f9fae", 1), (1, "#a9cbc9", 1)], 0, 0, 1, 0)
-    d.add(f'<path d="{__import__("kit").smooth(water, True)}" fill="url(#{wg})" fill-opacity="0.92" filter="url(#wash)"/>')
+    d.wash_gradient(water, [(0, "#4f7d8c"), (0.7, "#6f9fae"), (1, "#a9cbc9")], 0, 0, W, 0, op=0.85, smooth_=True)
     d.wash([(x, y + 30) for x, y in water], PAL["waterdk"], 0.35)
     d.wash([(570, water_top + 4), (700, water_top + 4), (690, 820), (580, 820)], "#cfe3df", 0.35, soft=True)
     # stone ledge with a moored boat and a lamp post on the left

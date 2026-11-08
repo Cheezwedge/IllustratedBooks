@@ -15,8 +15,8 @@ A complete plan and working production pipeline for a **new illustrated edition 
 | `output/production-notes.pdf` | **All the planning in one PDF**: rights, art bible, illustration plan, production, text preparation, gallery, sample pages |
 | `docs/` | The same planning documents as Markdown |
 | `plan/illustrations.csv` | **The illustration plan**: 176 pieces, each with ID, chapter, type, position, brief, priority and status. Edit it in any spreadsheet. |
-| `art/png/` | Style-study art at 300 ppi: 2 full-page cutaways, 19 chapter openers and emblems, 13 margin critters, 26 drop caps, ornaments, cover art |
-| `art/src/` | The generators for that art (Python to SVG, rendered with Chromium) |
+| `art/png/` | Style-study art at 300 ppi: 2 full-page cutaways, a close-up half-page vignette, 19 chapter openers and emblems, 17 natural-history margin studies, 26 drop caps, ornaments, cover art |
+| `art/src/` | The art itself, as code: `wc.py` is a raster pen-and-watercolour engine; `detail.py`, `objects.py`, `small.py` and the `scene_*.py` files draw with it |
 | `book/build.py` | The layout engine (WeasyPrint): places plates and spreads on exact page boundaries, half-pages at page tops, insets with text wrap, critters on any art-less page |
 | `book/cover.py` | Cover builder |
 | `book/book.json` | Title-page and copyright-page details (imprint, ISBNs, territories, dedication) |
@@ -31,7 +31,7 @@ A complete plan and working production pipeline for a **new illustrated edition 
 Install the Python dependencies:
 
 ```bash
-pip install weasyprint pymupdf pillow markdown
+pip install weasyprint pymupdf pillow markdown numpy scipy
 ```
 
 Build the interior (about 2 minutes):
@@ -58,10 +58,16 @@ Compile the production-notes PDF:
 python3 tools/notes_pdf.py
 ```
 
-Re-render the style-study art (needs Node with Playwright and Chromium):
+Repaint the style-study art (about 2 minutes at 300 dpi):
 
 ```bash
 python3 art/src/build_art.py
+```
+
+Quick low-resolution previews:
+
+```bash
+WC_DPI=100 python3 art/src/build_art.py
 ```
 
 **Adding finished art:** save it as `art/final/<ID>.png` or `.jpg` (e.g. `art/final/P-05-01.jpg`) at the size given in the art bible §2.8 and rebuild. It replaces the labelled placeholder automatically.

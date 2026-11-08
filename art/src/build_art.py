@@ -1,7 +1,6 @@
-"""Generate every SVG in the style library and render them to 300 dpi PNGs.
+"""Paint every piece in the style library with the watercolour engine (art/src/wc.py).
 
-    python3 art/src/build_art.py            # SVG + PNG (300 dpi)
-    python3 art/src/build_art.py --svg-only
+    python3 art/src/build_art.py            # paint everything at 300 dpi (WC_DPI=150 for quick previews)
 """
 import os
 import subprocess
@@ -15,8 +14,9 @@ import small  # noqa: E402
 import scene_burrow  # noqa: E402
 import scene_cellar  # noqa: E402
 import scene_cover  # noqa: E402
+import scene_pantry  # noqa: E402
 
-SVG = os.path.join(ROOT, "art", "svg")
+SVG = os.path.join(ROOT, "art", "png")   # the raster engine writes PNG/JPEG directly
 NUMERALS = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI",
             "XVII", "XVIII", "XIX"]
 
@@ -32,6 +32,7 @@ def main():
 
     scene_burrow.build(out("plate_burrow_cutaway.svg"))
     scene_cellar.build(out("plate_cellar_mechanism.svg"))
+    scene_pantry.build(out("half_pantry_vignette.png"))
     scene_cover.build_front(out("cover_front_art.svg"))
     scene_cover.build_back(out("cover_back_art.svg"))
     for i, num in enumerate(NUMERALS):
@@ -44,23 +45,7 @@ def main():
     small.corner_vine(out("orn_corner.svg"))
     for i, ch in enumerate("ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
         small.dropcap(out(f"dropcap_{ch}.svg"), ch, i)
-    print(f"wrote {len(files)} SVGs")
-    if "--svg-only" not in sys.argv:
-        dpi = "300"
-        for a in sys.argv:
-            if a.startswith("--dpi="):
-                dpi = a.split("=")[1]
-        subprocess.run(["node", os.path.join(ROOT, "tools", "render.cjs"), "--dpi", dpi] + files, check=True)
-        # opaque full-page art -> high-quality JPEG (PNG of watercolour grain is 4-5x larger)
-        from PIL import Image
-        png_dir = os.path.join(ROOT, "art", "png")
-        for name in os.listdir(png_dir):
-            if name.startswith(("plate_", "cover_")) and name.endswith(".png"):
-                p = os.path.join(png_dir, name)
-                Image.open(p).convert("RGB").save(p[:-4] + ".jpg", quality=92, dpi=(int(dpi), int(dpi)), subsampling=0)
-                os.remove(p)
-                print("jpeg:", name[:-4] + ".jpg")
-
+    print(f"painted {len(files)} pieces into art/png/")
 
 if __name__ == "__main__":
     main()
