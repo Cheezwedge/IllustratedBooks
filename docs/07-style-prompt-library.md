@@ -238,6 +238,8 @@ Score each image from 1 to 5. Keep images that average 4 or more; repaint or reg
 
 ## 7.9 Style variant B: ink & wash (from your reference U1)
 
+> **Provenance:** U1 was made in the Gemini app with a prompt that named a specific book series (see `art/anchors/SOURCES.md`). Use it for the *qualities* listed below only. Never reuse that prompt. Replace U1 with a neutrally prompted image as soon as one scores well.
+
 Reference U1 shows a crisper sibling of the house style, closer to a finely hatched pen drawing tinted with watercolour. Choose **one** family per book and do not mix their anchors in a single prompt, or the model will average them:
 
 - **Variant A (soft watercolour):** anchors A1–A5 and the Master Style Block.
@@ -276,6 +278,12 @@ Small white rectangular label boxes with a thin dark border, each pointing at it
 
 ```text
 Three tall, narrow vertical cutaway panels side by side, each framed by a thin ornamental border with a parchment title cartouche at the top: [PANEL 1 e.g. a great dwarf hall with vaults, armoury, brewery and mines below], [PANEL 2], [PANEL 3]. Each panel is a deep cross-section from the surface down through several levels, connected by stairs, shafts, rope lifts and tunnels, every chamber crowded with appropriate objects. Each place must match the story's description; do not invent rooms that contradict it.
+```
+
+**Worked example, variant B** (recreates U1's look with neutral wording; paste as is):
+
+```text
+Three tall, narrow vertical cutaway panels side by side, each framed by a thin ornamental border with a parchment title cartouche at the top (leave the cartouches empty). Panel 1: a great dwarf hall carved in stone with pillars and a long feasting table, and below it, connected by a rope lift and a stone stair, treasure vaults, an armoury, a brewery with copper vats and barrels, and mine tunnels at the bottom. Panel 2: a large timber-and-stone house in a deep green valley beside waterfalls, cut away to show a library, guest bedrooms, a hall of fire with a long table, and stables and gardens at ground level. Panel 3: a vast cave under a mountain with a secret door and a winding stair at the top, storerooms of barrels and shelves partway down, a red-gold dragon with four legs and folded wings asleep on a hoard of gold, goblets and jewels, and the mountain's roots and tunnels below. Every chamber is crowded with appropriate objects; small figures appear only tiny and in the distance. Small white rectangular label boxes with a thin dark border point to the main areas; leave every label box empty. Precise, confident dark sepia-brown ink linework with dense fine hatching and cross-hatching that models every form, like a detailed pen drawing tinted with transparent watercolour; muted stone greys, moss and sage greens, warm wood browns and glowing treasure golds, with strong but gentle light-and-shade and warm lantern glow; crisp, readable detail; cream paper. Gentle and child-friendly. Do not imitate any specific living or dead artist, book series, film or game. No photorealism, no 3D render, no glossy digital painting, no text anywhere.
 ```
 
 ## 7.10 Rules that always apply
