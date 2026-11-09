@@ -102,6 +102,8 @@ Labels are part of the picture's function: they name the rooms so a child can ex
 Each main room has a small blank parchment ribbon or tag with a fine curved pointer line leading into it, placed in clear wall or earth space where it does not cover any detail. Leave every ribbon completely empty, with no letters.
 ```
 
+**Filling blank labels:** `tools/label_placards.py` finds the empty placards in a generated picture, writes a numbered list you edit, and then types the words in. Labels use a clean sans-serif (Inter) and titles use the book's serif (IM Fell). Run `detect`, edit the `.labels.json`, then run `apply`.
+
 **Option B: labels drawn by the model.** Keep them few (four to six), short and in capitals. Generators known for good lettering (for example Ideogram, Recraft or the newest Gemini and GPT image models) do this best. Proofread every letter.
 
 ```text
@@ -216,7 +218,7 @@ Attach these as style references. They are in `output/style-anchors/` (resized f
 
 | Tool | How |
 |---|---|
-| **Gemini (app or API)** | Attach the anchors, then add: "Match the drawing and painting style of the attached reference images; use them for style only." To refine a layout, attach that layout first and say "repaint this composition". |
+| **Gemini (app or API)** | Attach the anchors, then add: "Match the drawing and painting style of the attached reference images; use them for style only." To refine a layout, attach that layout first and say "repaint this composition". **Gemini tends to edit an attached image rather than draw a new one.** For a fresh scene, add: "Create an entirely new composition; take only line, colour and texture from the attached image." If it still copies, generate without attaching anything. |
 | **ChatGPT / GPT image models** | Attach the anchors with the same sentence. Ask for portrait or landscape explicitly. |
 | **Midjourney** | Upload the anchors and use them as style references (`--sref`), with `--ar 2:3` for a full page and `--ar 3:2` for a spread. Use `--no` for the Avoid items. |
 | **Local SDXL / Flux (ComfyUI, Krita AI)** | Use the anchors through a style or IP-adapter reference, the layout through ControlNet (`tools/local_refine.py`), and the Avoid line as the negative prompt. |

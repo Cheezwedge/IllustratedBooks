@@ -1,0 +1,209 @@
+[
+ {
+  "x": 33,
+  "y": 31,
+  "w": 256,
+  "h": 30,
+  "id": 0,
+  "role": "title",
+  "text": "The Great Hall of Thror"
+ },
+ {
+  "x": 42,
+  "y": 630,
+  "w": 169,
+  "h": 12,
+  "id": 1,
+  "role": "label",
+  "text": "GOLD & TREASURE VAULTS"
+ },
+ {
+  "x": 60,
+  "y": 777,
+  "w": 67,
+  "h": 12,
+  "id": 2,
+  "role": "label",
+  "text": "ARMOURY"
+ },
+ {
+  "x": 88,
+  "y": 946,
+  "w": 63,
+  "h": 11,
+  "id": 3,
+  "role": "label",
+  "text": "BREWERY"
+ },
+ {
+  "x": 73,
+  "y": 1101,
+  "w": 42,
+  "h": 12,
+  "id": 4,
+  "role": "label",
+  "text": "MINES"
+ },
+ {
+  "x": 339,
+  "y": 29,
+  "w": 252,
+  "h": 55,
+  "id": 5,
+  "role": "title",
+  "text": "The Last Homely House|Rivendell"
+ },
+ {
+  "x": 520,
+  "y": 174,
+  "w": 63,
+  "h": 24,
+  "id": 6,
+  "role": "label",
+  "text": "WEAVING|ROOM"
+ },
+ {
+  "x": 337,
+  "y": 208,
+  "w": 92,
+  "h": 11,
+  "id": 7,
+  "role": "label",
+  "text": "OBSERVATORY"
+ },
+ {
+  "x": 531,
+  "y": 345,
+  "w": 56,
+  "h": 12,
+  "id": 8,
+  "role": "label",
+  "text": "HAY LOFT"
+ },
+ {
+  "x": 516,
+  "y": 383,
+  "w": 79,
+  "h": 24,
+  "id": 9,
+  "role": "label",
+  "text": "TERRACE|GARDEN"
+ },
+ {
+  "x": 430,
+  "y": 464,
+  "w": 55,
+  "h": 11,
+  "id": 10,
+  "role": "label",
+  "text": "LIBRARY"
+ },
+ {
+  "x": 411,
+  "y": 558,
+  "w": 94,
+  "h": 12,
+  "id": 11,
+  "role": "label",
+  "text": "GUEST ROOMS"
+ },
+ {
+  "x": 415,
+  "y": 661,
+  "w": 86,
+  "h": 12,
+  "id": 12,
+  "role": "label",
+  "text": "HALL OF FIRE"
+ },
+ {
+  "x": 536,
+  "y": 900,
+  "w": 56,
+  "h": 11,
+  "id": 13,
+  "role": "label",
+  "text": "LOOKOUT"
+ },
+ {
+  "x": 439,
+  "y": 953,
+  "w": 56,
+  "h": 11,
+  "id": 14,
+  "role": "label",
+  "text": "STABLES"
+ },
+ {
+  "x": 509,
+  "y": 1055,
+  "w": 81,
+  "h": 23,
+  "id": 15,
+  "role": "label",
+  "text": "VALLEY|GARDENS"
+ },
+ {
+  "x": 342,
+  "y": 1100,
+  "w": 247,
+  "h": 15,
+  "id": 16,
+  "role": "label",
+  "text": "THE HIDDEN VALLEY"
+ },
+ {
+  "x": 653,
+  "y": 30,
+  "w": 227,
+  "h": 56,
+  "id": 17,
+  "role": "title",
+  "text": "Smaug's Lair &|the Dwarves' Hoard"
+ },
+ {
+  "x": 835,
+  "y": 248,
+  "w": 61,
+  "h": 36,
+  "id": 18,
+  "role": "label",
+  "text": "BILBO'S|SNEAKING PATH"
+ },
+ {
+  "x": 642,
+  "y": 748,
+  "w": 86,
+  "h": 12,
+  "id": 19,
+  "role": "label",
+  "text": "DWARF GOLD"
+ },
+ {
+  "x": 773,
+  "y": 779,
+  "w": 122,
+  "h": 11,
+  "id": 20,
+  "role": "label",
+  "text": "THE ARKENSTONE"
+ },
+ {
+  "x": 786,
+  "y": 856,
+  "w": 112,
+  "h": 13,
+  "id": 21,
+  "role": "label",
+  "text": "CROWNS & JEWELS"
+ },
+ {
+  "x": 689,
+  "y": 1094,
+  "w": 157,
+  "h": 12,
+  "id": 22,
+  "role": "label",
+  "text": "THE MOUNTAIN'S ROOTS"
+ }
+]
