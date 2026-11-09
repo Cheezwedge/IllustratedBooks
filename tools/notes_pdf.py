@@ -32,6 +32,7 @@ def md(path):
     text = open(path, encoding="utf-8").read()
     h = markdown.markdown(text, extensions=["tables", "fenced_code", "sane_lists"])
     h = h.replace("[ ]", "☐")
+    h = h.replace('src="../', f'src="file://{ROOT}/')   # images referenced relative to docs/
     return h
 
 

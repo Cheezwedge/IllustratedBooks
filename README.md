@@ -13,6 +13,7 @@ A complete plan and working production pipeline for a **new illustrated edition 
 | `output/cover-paperback.pdf` | Wraparound cover (back, spine, front) with the spine sized from the page count; `cover-guides.pdf` shows the guides |
 | `output/cover-ebook-front.jpg` | Ebook store cover |
 | `output/production-notes.pdf` | **All the planning in one PDF**: rights, art bible, illustration plan, production, text preparation, gallery, sample pages |
+| `output/style-prompt-library.pdf` + `output/style-anchors/` | **The "Hedgerow Cutaway" style kit for other AI image tools**: four-pillar prompt library, master style block, scene templates, checklist, plus anchor images to attach as style references (`style-anchors.zip`). Rebuild with `python3 tools/style_kit.py` |
 | `docs/` | The same planning documents as Markdown |
 | `plan/illustrations.csv` | **The illustration plan**: 176 pieces, each with ID, chapter, type, position, brief, priority and status. Edit it in any spreadsheet. |
 | `art/png/` | Style-study art at 300 ppi: 2 full-page cutaways, a close-up half-page vignette, 19 chapter openers and emblems, 17 natural-history margin studies, 26 drop caps, ornaments, cover art |
