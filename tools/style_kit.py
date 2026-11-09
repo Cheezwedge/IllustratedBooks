@@ -80,6 +80,11 @@ def build_anchors():
     }
     for name, im in a.items():
         im.save(os.path.join(ANC, name), quality=90)
+    # your own reference images (art/anchors/*.jpg|png), copied in as U-anchors
+    for p in sorted(glob.glob(os.path.join(ROOT, "art", "anchors", "*"))):
+        if p.lower().endswith((".jpg", ".jpeg", ".png", ".webp")):
+            base = os.path.splitext(os.path.basename(p))[0]
+            fit(flat(p)).save(os.path.join(ANC, base + ".jpg"), quality=92)
     # A0: everything on one sheet with captions
     font_path = os.path.join(ROOT, "fonts", "IMFellEnglish-400i.ttf")
     f = ImageFont.truetype(font_path, 34)

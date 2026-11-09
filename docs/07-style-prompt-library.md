@@ -204,10 +204,13 @@ Attach these as style references. They are in `output/style-anchors/` (resized f
 | **A4. Nature studies** | `A4_nature_studies_sheet.jpg` | Pillar 3: botanically accurate small studies, white paper |
 | **A5. Decoration** | `A5_decoration_opener.jpg` | Ornament: bramble banner, roundel, berries |
 | **All** | `A0_anchor_sheet.jpg` | Everything at once, for single-image tools |
+| **U1. Your reference: ink & wash panels** | `U1_three_panel_cutaways.jpg` | Style variant B (§7.9): crisp hatched ink, muted stone and gold palette, vertical panel layout, boxed labels |
 
 ![A1 composition anchor](../art/png/plate_burrow_cutaway.jpg)
 
 ![A3 medium and clutter anchor](../art/png/half_pantry_vignette.png)
+
+![U1 your reference: ink and wash panels](../art/anchors/U1_three_panel_cutaways.jpg)
 
 **How to attach them, by tool** (interfaces change, so check each tool's current help):
 
@@ -233,7 +236,49 @@ Score each image from 1 to 5. Keep images that average 4 or more; repaint or reg
 | **4. Labels** | Blank ribbons (option A) or correctly spelled short labels (option B) | Gibberish letters, labels covering detail |
 | **Safety** | Gentle, child-friendly, no look-alike of films or other illustrators | Scary faces, film-style designs, an artist's signature style copied too closely |
 
-## 7.9 Rules that always apply
+## 7.9 Style variant B: ink & wash (from your reference U1)
+
+Reference U1 shows a crisper sibling of the house style, closer to a finely hatched pen drawing tinted with watercolour. Choose **one** family per book and do not mix their anchors in a single prompt, or the model will average them:
+
+- **Variant A (soft watercolour):** anchors A1–A5 and the Master Style Block.
+- **Variant B (ink & wash):** anchor U1 and the blocks below.
+
+**What U1 does well (keep):**
+
+- Confident dark-brown ink with dense hatching that models every form.
+- Muted stone grey, moss, wood-brown and treasure-gold palette, with gentle but strong light and shade.
+- Rooms crowded with objects that read clearly at small size.
+- Deep vertical sections from the surface to the roots.
+- Tall framed panels with a parchment title cartouche.
+- Labels in small white boxes with a thin dark border and clean sans-serif capitals.
+- A dragon with four legs and separate wings, as in the book.
+
+**What U1 gets wrong (do not copy):**
+
+- Misspelled labels ("SMEAKING", "ARKKENSTONE", "SMYTHED"). Use blank boxes and add the text later (§7.4 option A), or proofread every letter.
+- Duplicated labels ("STABLES" three times).
+- Places that contradict the book: the elf-lord's house is not a treehouse, and there are no stables in trees.
+- At 928 × 1144 px it is a style reference only. Print needs about 2100 × 3100 px for a full page.
+
+**Medium block, variant B** (use in place of Pillar 2):
+
+```text
+Precise, confident dark sepia-brown ink linework with dense fine hatching and cross-hatching that models every form, like a detailed pen drawing tinted with transparent watercolour. Muted stone greys, moss and sage greens, warm wood browns and glowing treasure golds, with strong but gentle light-and-shade contrast and warm lantern glow; crisp, readable detail at small scale; cream paper.
+```
+
+**Label block, variant B** (matches U1's boxes):
+
+```text
+Small white rectangular label boxes with a thin dark border, each pointing at its area, containing short labels in clean sans-serif capitals. [List the exact words, e.g. 'THE CELLAR', 'PANTRY & LARDER'.] Spell every word exactly as given; no other text. (Or: leave every label box empty.)
+```
+
+**T9. Three-panel vertical cutaway** (portrait, for endpapers, posters, chapter maps or a "places of the story" spread):
+
+```text
+Three tall, narrow vertical cutaway panels side by side, each framed by a thin ornamental border with a parchment title cartouche at the top: [PANEL 1 e.g. a great dwarf hall with vaults, armoury, brewery and mines below], [PANEL 2], [PANEL 3]. Each panel is a deep cross-section from the surface down through several levels, connected by stairs, shafts, rope lifts and tunnels, every chamber crowded with appropriate objects. Each place must match the story's description; do not invent rooms that contradict it.
+```
+
+## 7.10 Rules that always apply
 
 - **Never put an artist's name, a book-series title or a film title in a prompt.**
 - Design the book's characters yourself first (art bible §2.6). Give generators *your* character sheets as references, never film stills.
