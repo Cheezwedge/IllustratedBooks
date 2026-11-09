@@ -108,10 +108,15 @@ def build_anchors():
 
 
 def build_pdf(anchors):
-    src = open(os.path.join(ROOT, "docs", "07-style-prompt-library.md"), encoding="utf-8").read()
+    gallery = "".join(f'<div class="anc"><img src="file://{p}"/><div class="cap">{os.path.basename(p)}</div></div>' for p in anchors)
+    build_pdf_from(os.path.join(ROOT, "docs", "07-style-prompt-library.md"), os.path.join(OUT, "style-prompt-library.pdf"),
+                   f"<div class='gal'><h2>Anchor images (attach these as style references)</h2>{gallery}</div>")
+
+
+def build_pdf_from(src_path, out_path, extra_html=""):
+    src = open(src_path, encoding="utf-8").read()
     body = markdown.markdown(src, extensions=["tables", "fenced_code", "sane_lists"])
     body = body.replace('src="../', f'src="file://{ROOT}/')
-    gallery = "".join(f'<div class="anc"><img src="file://{p}"/><div class="cap">{os.path.basename(p)}</div></div>' for p in anchors)
     fonts = os.path.join(ROOT, "fonts")
     css = f"""
 @font-face{{font-family:'Gar';src:url(file://{fonts}/EBGaramond-400.ttf)}}
@@ -137,9 +142,8 @@ hr {{ border: 0; border-top: 0.6pt solid #c9a27a; }}
 .anc img {{ max-height: 120mm; }}
 .cap {{ font: italic 9pt 'Gar'; color: #6b5240; }}
 """
-    html = (f"<html><head><meta charset='utf-8'><style>{css}</style></head><body>{body}"
-            f"<div class='gal'><h2>Anchor images (attach these as style references)</h2>{gallery}</div></body></html>")
-    HTML(string=html, base_url=ROOT).write_pdf(os.path.join(OUT, "style-prompt-library.pdf"))
+    html = f"<html><head><meta charset='utf-8'><style>{css}</style></head><body>{body}{extra_html}</body></html>"
+    HTML(string=html, base_url=ROOT).write_pdf(out_path)
 
 
 if __name__ == "__main__":
