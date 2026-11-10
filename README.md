@@ -18,6 +18,7 @@ A complete plan and working production pipeline for a **new illustrated edition 
 | `docs/` | The same planning documents as Markdown |
 | `plan/illustrations.csv` | **The illustration plan**: 176 pieces, each with ID, chapter, type, position, brief, priority and status. Edit it in any spreadsheet. |
 | `art/png/` | Style-study art at 300 ppi: 2 full-page cutaways, a close-up half-page vignette, 19 chapter openers and emblems, 17 natural-history margin studies, 26 drop caps, ornaments, cover art |
+| `art/compare/` + `output/burrow-v1-v2.jpg` | A second study of the burrow cutaway with every room drawn in perspective (`art/src/scene_burrow_v2.py`), and a side-by-side sheet against the first study. The book still uses the first study. |
 | `art/src/` | The art itself, as code: `wc.py` is a raster pen-and-watercolour engine; `detail.py`, `objects.py`, `small.py` and the `scene_*.py` files draw with it |
 | `book/build.py` | The layout engine (WeasyPrint): places plates and spreads on exact page boundaries, half-pages at page tops, insets with text wrap, critters on any art-less page |
 | `book/cover.py` | Cover builder |

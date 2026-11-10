@@ -160,3 +160,14 @@ From this cloud workspace the **Google Gemini API** is reachable, and its image 
 - logs every generation in `art/ai/log.csv` for disclosure.
 
 Review the variants, paint over by hand, and `--promote` the chosen one into `art/final/`. You need your own Gemini API key, stored as an environment secret and never in the repository. Check Google's current pricing and terms.
+
+### Second study: rooms in perspective
+
+`art/src/scene_burrow_v2.py` repaints the burrow cutaway with a small stage-set system:
+
+- Each room has a back wall, side walls, a vaulted ceiling and a floor that recedes to a vanishing point.
+- Furniture is built from boxes and cylinders with visible tops and sides, and stands at different depths.
+- Pen hatching is placed by hand on vaults, shaded walls and stair shafts.
+- Room names sit on small placards.
+
+Output is `art/compare/plate_burrow_cutaway_v2.jpg`; `output/burrow-v1-v2.jpg` shows both studies side by side. To use the second study as the frontispiece, copy it to `art/final/FM-P1.jpg` and rebuild.
