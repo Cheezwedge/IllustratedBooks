@@ -25,8 +25,9 @@ CAST = [
                  "large bare feet with curly brown hair on top, wearing a bright green waistcoat with brass buttons and yellow breeches"),
     ("[WIZARD]", "a very tall old wizard with a long white beard, bushy eyebrows, a tall pointed blue hat, a long grey cloak, "
                  "a silver scarf, big boots and a wooden staff"),
-    ("[DWARVES]", "thirteen sturdy dwarves with long beards tucked into their belts, each in a differently coloured hood "
-                  "(dark green, scarlet, blue, purple, grey, brown, white, yellow, pale green), carrying packs, tools and musical instruments"),
+    ("[DWARVES]", "exactly thirteen sturdy dwarves with long beards tucked into their belts, in coloured hoods: one dark green, "
+                  "one scarlet, two blue, two purple, one grey, one brown, one white, two yellow, one pale green, and the leader's "
+                  "sky-blue hood with a long silver tassel; carrying packs, tools and musical instruments"),
     ("[DWARF-LEADER]", "a proud, dignified dwarf with a long grey-streaked beard and a sky-blue hood with a long silver tassel"),
     ("[CREATURE]", "a small, thin, slimy, pale creature with huge round pale eyes that glow faintly, kept half-hidden in shadow"),
     ("[DRAGON]", "a vast red-gold dragon with four legs and a separate pair of great folded wings, a long tail, and a belly "
@@ -314,6 +315,34 @@ SCENES = {
 }
 
 
+T13 = "exactly thirteen dwarves (count them)"
+COUNT = {
+    "P-01-02": f"Show {T13}, plus the hobbit and the wizard.",
+    "P-02-01": f"Show {T13} on ponies, plus the hobbit and the wizard: fifteen riders in all.",
+    "P-03-01": f"Show {T13}, the hobbit and the wizard with their ponies.",
+    "P-04-01": f"The company is {T13}, the hobbit and the wizard: fifteen tiny figures.",
+    "H-04-01": f"The sleepers are {T13}, the hobbit and the wizard.",
+    "S-04-01": f"The travellers being hustled along are {T13} and the hobbit.",
+    "P-06-01": f"Show {T13}, the hobbit and the wizard spread across the treetops.",
+    "P-06-02": f"Show {T13}, the hobbit and the wizard, each carried by an eagle.",
+    "H-06-03": f"Show {T13}, the hobbit and the wizard resting on the ledge.",
+    "P-07-01": f"Show {T13}, the hobbit and the wizard on the rock.",
+    "P-07-02": f"At the table: {T13}, the hobbit, the wizard and the host.",
+    "H-07-01": "Only the wizard and the hobbit walk through the fields; the thirteen dwarves wait far behind, out of sight.",
+    "P-08-01": f"Walking in single file: {T13} and the hobbit; the wizard is not with them.",
+    "H-08-02": f"Stumbling towards the feast: {T13} and the hobbit.",
+    "P-08-03": "Exactly twelve dwarves (count them) hang wrapped in silk; the leader in the sky-blue hood is not among them.",
+    "P-09-01": "Thirteen barrels in all go through the trapdoor, each holding one dwarf.",
+    "P-09-02": "Exactly thirteen barrels (count them) bob down the river, one dwarf in each, with the hobbit riding on top of one.",
+    "H-10-02": f"In the boats: {T13} and the hobbit.",
+    "P-11-02": f"Gathered at the door: {T13} and the hobbit.",
+    "P-13-01": f"Trying on armour: {T13} and the hobbit.",
+    "H-13-02": f"Climbing the stairs: {T13} and the hobbit.",
+    "H-15-01": f"Listening to the raven: {T13} and the hobbit.",
+    "P-15-01": f"Building the wall: {T13}.",
+}
+
+
 def load(name):
     with open(os.path.join(ROOT, "plan", name), newline="") as f:
         return list(csv.DictReader(f))
@@ -323,6 +352,8 @@ def assemble(iid, item, palette, variant):
     title, scene, cut = SCENES[iid]
     t = item["type"] if item else ("spread" if iid.startswith("S-") else "plate")
     parts = [FORMAT.get(t, FORMAT["plate"]), scene]
+    if iid in COUNT:
+        parts.append(COUNT[iid])
     if cut or t == "spread":
         parts.append(CUTAWAY)
     if t in ("plate", "spread"):

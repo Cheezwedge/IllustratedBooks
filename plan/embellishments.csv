@@ -2,7 +2,7 @@ id,chapter,kind,position,title,description
 E-01-01,1,spot,0.02,Smoke rings,A few perfect smoke rings floating up into a blue morning sky above a round green door and a flower box.
 E-01-02,1,margin,0.08,A hedge of dog-roses,"A climbing dog-rose with pink flowers, buds and a bumblebee, rising up the margin."
 E-01-03,1,spot,0.15,The secret mark,A small mysterious scratched sign glinting on shiny green paintwork beside a brass knob.
-E-01-04,1,vignette,0.25,Hoods on the pegs,"A row of wooden pegs holding coloured hoods (dark green, scarlet, blue, purple, grey, brown, white, yellow, pale green, and one sky-blue with a silver tassel)."
+E-01-04,1,vignette,0.25,Hoods on the pegs,"A row of wooden pegs holding exactly thirteen coloured hoods (count them): one dark green, one scarlet, two blue, two purple, one grey, one brown, one white, two yellow, one pale green, and one sky-blue with a long silver tassel."
 E-01-05,1,spot,0.32,The doorbell,"An old brass bell-pull swinging beside a round door, with motion lines as it rings."
 E-01-06,1,vignette,0.4,Tea for thirteen,"A crowded tea table: seed-cake, raspberry jam, apple tart, mince pies, cheese, a cold chicken, pickles and a big teapot."
 E-01-07,1,spot,0.47,Flying plates,"Plates and cups tossed up in an arc over a sink, none of them broken, with soap bubbles."
@@ -52,7 +52,7 @@ E-05-11,5,spot,0.8,A pocket,A waistcoat pocket with something round and golden p
 E-05-12,5,spot,0.95,Popped buttons,Brass buttons scattered on a stone doorstep in a crack of daylight.
 E-05-13,5,tail,1.0,Daylight at last,"A tailpiece of sunlight bursting through a narrow rock crack, a few mountain flowers."
 E-06-01,6,vignette,0.05,Sunlit slope,"A sunny mountainside dell with heather, rocks and a blue sky."
-E-06-02,6,spot,0.2,Counting dwarves,"Thirteen coloured hoods in a row seen from behind, one empty space."
+E-06-02,6,spot,0.2,Counting dwarves,"Exactly thirteen coloured hoods (count them) in a row seen from behind, with one empty space at the end where the hobbit should be."
 E-06-03,6,margin,0.32,The scree slope,Loose stones tumbling down a steep slope towards pine trees.
 E-06-04,6,spot,0.45,Wolf eyes,"Pairs of yellow eyes glinting between dark tree trunks, more mysterious than scary."
 E-06-05,6,spot,0.55,A flaming pine-cone,"A burning pine-cone with blue and gold flames, trailing sparks."
