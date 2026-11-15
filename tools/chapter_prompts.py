@@ -38,6 +38,37 @@ CAST = [
     ("[TROLLS]", "three enormous, dim, quarrelsome trolls with stony grey-green skin, lumpy noses and ragged clothes, more comic than scary"),
 ]
 
+NAMES = {
+    "[HOBBIT]": "Bilbo Baggins the hobbit",
+    "[WIZARD]": "Gandalf the wizard",
+    "[DWARVES]": "the thirteen dwarves (Thorin, Dwalin, Balin, Kili, Fili, Dori, Nori, Ori, Oin, Gloin, Bifur, Bofur and Bombur)",
+    "[DWARF-LEADER]": "Thorin Oakenshield",
+    "[CREATURE]": "Gollum",
+    "[DRAGON]": "Smaug the dragon",
+    "[HOST]": "Beorn",
+    "[ELF-LORD]": "Elrond",
+    "[ELF-KING]": "the Elvenking",
+    "[BOWMAN]": "Bard the Bowman",
+    "[TROLLS]": "the three trolls, Bert, Tom and William",
+}
+NAMED_NOTE = ("Draw every character from the description given here, not from any film, game or earlier illustrated "
+              "edition; the characters must not resemble any actor or film design.")
+
+
+def with_names(text):
+    """Replace each placeholder with the character's name plus a short description of how they look."""
+    desc = dict(CAST)
+    seen = set()
+
+    def sub(tok):
+        if tok in seen:
+            return NAMES[tok]
+        seen.add(tok)
+        return f"{NAMES[tok]} ({desc[tok]})"
+    import re
+    return re.sub(r"\[[A-Z-]+\]", lambda m: sub(m.group(0)) if m.group(0) in NAMES else m.group(0), text)
+
+
 MEDIUM = {
     "A": ("Style: classic children's book illustration; delicate, slightly irregular hand-drawn outlines in warm sepia-brown ink; "
           "soft transparent watercolour washes layered with light coloured-pencil shading and gentle cross-hatching in the shadows; "
@@ -306,6 +337,7 @@ def main():
     NUM = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX"]
     os.makedirs(os.path.join(ROOT, "output", "prompts"), exist_ok=True)
     txt = {"A": [], "B": []}
+    named = {"A": [], "B": []}
     md = ["# 8 · Prompts for the major events of every chapter", "",
           f"{len(SCENES)} ready-to-paste prompts, roughly three key moments per chapter, taken from the illustration plan "
           "(IDs match `plan/illustrations.csv`). The prompts shown below use **style variant B (ink & wash)**. "
@@ -331,6 +363,7 @@ def main():
         ids = [i for i in SCENES if int(i.split("-")[1]) == n]
         md += [f"## {NUM[n]}. {c['title']}", "", f"*Colour mood: {c['palette']}*", ""]
         for v in ("A", "B"):
+            named[v].append(f"===== CHAPTER {NUM[n]}: {c['title'].upper()} =====\n")
             txt[v].append(f"===== CHAPTER {NUM[n]}: {c['title'].upper()} =====\n")
         for iid in ids:
             item = items.get(iid)
@@ -339,6 +372,7 @@ def main():
             md += [f"**{iid} · {title}** ({kind})", "", "```text", assemble(iid, item, c["palette"], "B"), "```", ""]
             for v in ("A", "B"):
                 txt[v].append(f"[{iid}] {title} ({kind})\n{assemble(iid, item, c['palette'], v)}\n")
+                named[v].append(f"[{iid}] {title} ({kind})\n{with_names(assemble(iid, item, c['palette'], v))} {NAMED_NOTE}\n")
     md += ["*Scene descriptions were written for this project in plain visual language and contain no text from the novel.*", ""]
     with open(os.path.join(ROOT, "docs", "08-chapter-prompts.md"), "w") as f:
         f.write("\n".join(md))
@@ -346,6 +380,11 @@ def main():
     for v, name in (("A", "chapter-prompts-A-watercolour.txt"), ("B", "chapter-prompts-B-ink-wash.txt")):
         with open(os.path.join(ROOT, "output", "prompts", name), "w") as f:
             f.write(cast_txt + "\n".join(txt[v]))
+    for v, name in (("A", "chapter-prompts-A-watercolour-named.txt"), ("B", "chapter-prompts-B-ink-wash-named.txt")):
+        with open(os.path.join(ROOT, "output", "prompts", name), "w") as f:
+            f.write("Prompts with the characters' names written in. Each name is followed by a short description the first "
+                    "time it appears in a prompt; edit the CAST descriptions in tools/chapter_prompts.py to change them.\n\n"
+                    + "\n".join(named[v]))
     import style_kit
     style_kit.build_pdf_from(os.path.join(ROOT, "docs", "08-chapter-prompts.md"), os.path.join(ROOT, "output", "chapter-prompts.pdf"))
     print(f"{len(SCENES)} prompts -> docs/08-chapter-prompts.md, output/prompts/*.txt, output/chapter-prompts.pdf")
