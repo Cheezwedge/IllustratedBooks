@@ -1,0 +1,161 @@
+id,chapter,kind,position,title,description
+E-01-01,1,spot,0.02,Smoke rings,A few perfect smoke rings floating up into a blue morning sky above a round green door and a flower box.
+E-01-02,1,margin,0.08,A hedge of dog-roses,"A climbing dog-rose with pink flowers, buds and a bumblebee, rising up the margin."
+E-01-03,1,spot,0.15,The secret mark,A small mysterious scratched sign glinting on shiny green paintwork beside a brass knob.
+E-01-04,1,vignette,0.25,Hoods on the pegs,"A row of wooden pegs holding coloured hoods (dark green, scarlet, blue, purple, grey, brown, white, yellow, pale green, and one sky-blue with a silver tassel)."
+E-01-05,1,spot,0.32,The doorbell,"An old brass bell-pull swinging beside a round door, with motion lines as it rings."
+E-01-06,1,vignette,0.4,Tea for thirteen,"A crowded tea table: seed-cake, raspberry jam, apple tart, mince pies, cheese, a cold chicken, pickles and a big teapot."
+E-01-07,1,spot,0.47,Flying plates,"Plates and cups tossed up in an arc over a sink, none of them broken, with soap bubbles."
+E-01-08,1,margin,0.55,Instruments,"A tall stack of musical instruments: a harp, fiddles, flutes, a drum and a viol, tied with ribbon."
+E-01-09,1,spot,0.7,A dwarf's hood and beard,A long forked beard tucked into a belt under a sky-blue hood with a silver tassel.
+E-01-10,1,spot,0.78,The old map,"An old parchment map with mountains, a forest, a lake and a red arrow, its corners curling."
+E-01-11,1,spot,0.84,The key,"A small silver key with an odd ward on a fine chain, lying on parchment."
+E-01-12,1,spot,0.95,A candle at bedtime,"A candlestick and a nightcap on a bedside table by a round window, a moon outside."
+E-01-13,1,tail,1.0,Breakfast left behind,"A tailpiece of a teacup, a half-eaten slice of toast and a pocket-handkerchief left on a table."
+E-02-01,2,spot,0.05,The note under the clock,"A folded note tucked under a mantel clock, a dusty breakfast plate beside it."
+E-02-02,2,vignette,0.12,Running down the lane,"A tiny figure hurrying down a country lane past hedges, without hat or walking stick, a mill in the distance."
+E-02-03,2,spot,0.2,Packs and ponies,"A heap of travel packs, bedrolls and saddlebags beside a grazing pony."
+E-02-04,2,margin,0.3,Rain,"Slanting rain over dripping foxgloves and ferns, a toadstool sheltering a beetle."
+E-02-05,2,spot,0.45,Mutton on a spit,"Meat roasting on a long spit over a crackling fire, sparks rising."
+E-02-06,2,spot,0.55,Ale jugs,"Enormous rough jugs of ale and a battered cooking pot, sized for giants."
+E-02-07,2,spot,0.62,The squeaking purse,"A lumpy leather purse with an alarmed face drawn in its stitching, as if squeaking."
+E-02-08,2,vignette,0.85,Stone at sunrise,"The first rays of sunrise over a woodland clearing, three tall grey boulders shaped like hunched figures, a robin on one."
+E-02-09,2,spot,0.95,Swords from the cave,"Three old swords and a knife laid on a cloak, one with runes on the blade."
+E-02-10,2,tail,1.0,Troll's gold buried,"A tailpiece of a small pot of gold coins half-buried under tree roots, a spade beside it."
+E-03-01,3,margin,0.1,The zigzag path,A narrow zigzag path dropping down a steep ravine edged with pines and heather.
+E-03-02,3,vignette,0.2,Lanterns in the trees,"Lanterns hanging among birch and pine branches at dusk, with fireflies."
+E-03-03,3,spot,0.35,A singing elf,"A tiny laughing figure in green sitting on a branch with a harp, silhouetted against a twilight sky."
+E-03-04,3,spot,0.5,The hall of fire,"A great stone hearth with a long fire and benches before it, a harp leaning against a pillar."
+E-03-05,3,spot,0.65,Runes on a blade,Close-up of an old sword hilt and blade engraved with flowing runes.
+E-03-06,3,spot,0.78,Moon-letters,A crescent moon above a parchment where faint silver letters glow.
+E-03-07,3,spot,0.9,New horseshoes,"Fresh horseshoes, nails and a farrier's hammer on an anvil."
+E-03-08,3,tail,1.0,Midsummer morning,"A tailpiece of a waterfall, pine sprigs and a sprig of midsummer flowers in morning light."
+E-04-01,4,margin,0.08,The mountain path,"A thin path climbing between crags, a pony with packs, clouds below."
+E-04-02,4,spot,0.18,Lightning,A jagged fork of lightning splitting a dark sky over peaks.
+E-04-03,4,spot,0.22,A thrown boulder,"A great boulder flying through misty air with a puff of spray, comic rather than scary."
+E-04-04,4,spot,0.32,A dry cave,The low mouth of a sheltering cave with packs stacked inside.
+E-04-05,4,spot,0.45,Goblin tools,"Crude goblin hammers, tongs, chains and a cogwheel on a forge bench, in red light."
+E-04-06,4,vignette,0.6,Goblin machinery,"Clanking wooden wheels, chains, pulleys and a bellows in a red-lit cavern, no figures."
+E-04-07,4,spot,0.72,Glowing blades,Two sword blades glowing pale blue in the dark.
+E-04-08,4,tail,1.0,A lost button,A tailpiece of a single brass button lying in the dark on a cave floor beside a dropped candle stub.
+E-05-01,5,spot,0.05,Alone in the dark,"A tiny glow of a small sword in total darkness, a faint outline of a hand."
+E-05-02,5,spot,0.12,A ring on the floor,"A plain gold ring lying on a tunnel floor, catching a faint glint."
+E-05-03,5,vignette,0.22,The black lake,A still black underground lake with a rocky island and a little boat.
+E-05-04,5,spot,0.3,Pale eyes,"Two round pale glowing eyes in the dark over black water, mysterious not scary."
+E-05-05,5,margin,0.4,Stalactites,"Dripping stalactites and stalagmites with tiny drops of water, running down the margin."
+E-05-06,5,spot,0.5,Riddle: roots and peak,A mountain with deep roots drawn beneath it and a cloud on its peak.
+E-05-07,5,spot,0.56,Riddle: wind,"Leaves, dandelion seeds and a feather swirling on the wind."
+E-05-08,5,spot,0.62,Riddle: an egg,A speckled egg in a mossy nest.
+E-05-09,5,spot,0.68,Riddle: a fish,A silver fish swimming in dark water.
+E-05-10,5,spot,0.74,Riddle: time,An hourglass beside a crumbling stone and a tiny sapling.
+E-05-11,5,spot,0.8,A pocket,A waistcoat pocket with something round and golden peeking out.
+E-05-12,5,spot,0.95,Popped buttons,Brass buttons scattered on a stone doorstep in a crack of daylight.
+E-05-13,5,tail,1.0,Daylight at last,"A tailpiece of sunlight bursting through a narrow rock crack, a few mountain flowers."
+E-06-01,6,vignette,0.05,Sunlit slope,"A sunny mountainside dell with heather, rocks and a blue sky."
+E-06-02,6,spot,0.2,Counting dwarves,"Thirteen coloured hoods in a row seen from behind, one empty space."
+E-06-03,6,margin,0.32,The scree slope,Loose stones tumbling down a steep slope towards pine trees.
+E-06-04,6,spot,0.45,Wolf eyes,"Pairs of yellow eyes glinting between dark tree trunks, more mysterious than scary."
+E-06-05,6,spot,0.55,A flaming pine-cone,"A burning pine-cone with blue and gold flames, trailing sparks."
+E-06-06,6,margin,0.65,A fir tree,A tall fir tree with someone's boots and a cloak dangling from a branch.
+E-06-07,6,spot,0.78,An eagle's talon,A great golden eagle's foot gently holding a small cloak.
+E-06-08,6,vignette,0.88,The eyrie,"A high rock ledge with a small fire, a nest of sticks and a view over miles of land."
+E-06-09,6,tail,1.0,Eagle feathers,A tailpiece of three golden-brown eagle feathers crossed with a sprig of pine.
+E-07-01,7,spot,0.05,The Carrock,A great flat-topped rock with carved steps standing in a river.
+E-07-02,7,margin,0.15,Clover and bees,"Tall clover, thistles and foxgloves with enormous furry bees, running up the margin."
+E-07-03,7,spot,0.2,A giant bee,"A huge furry bumblebee on a clover head, accurate and gentle."
+E-07-04,7,spot,0.28,Beehives,A row of straw bee skeps on a bench in a sunny garden.
+E-07-05,7,spot,0.38,Two at a time,Two coloured hoods peeking round a big wooden door.
+E-07-06,7,vignette,0.5,Animals serving supper,"Dogs on hind legs and a woolly sheep carrying trays of honey, cream and bread, gently funny."
+E-07-07,7,spot,0.6,Honey and cream,Wooden bowls of honey and cream with a honeycomb and a wooden spoon.
+E-07-08,7,spot,0.7,A bear's paw print,A large bear's paw print in moonlit grass by a gate.
+E-07-09,7,spot,0.85,Honey-cakes,A basket of twice-baked honey-cakes wrapped in a checked cloth.
+E-07-10,7,margin,0.95,The forest gate,"Two leaning trees forming a dark arch over a path, ivy hanging down."
+E-07-11,7,tail,1.0,Ponies going home,A tailpiece of two ponies trotting away along a meadow path at sunset.
+E-08-01,8,margin,0.05,Forest trunks,"Twisted dark tree trunks with moss, fungi and hanging cobwebs."
+E-08-02,8,spot,0.12,Black squirrels,Two black squirrels with bright eyes on a mossy branch.
+E-08-03,8,spot,0.18,The enchanted stream,A dark stream with a small boat tied on the far bank.
+E-08-04,8,spot,0.25,A sleeping dwarf,"A stout dwarf in a pale green hood, fast asleep and snoring on a stretcher of branches."
+E-08-05,8,spot,0.35,Velvet butterflies,Velvety black butterflies with purple sheen in sunlight above leaves.
+E-08-06,8,vignette,0.45,An elvish feast,"Torches and long tables in a forest clearing seen through trees, lights twinkling."
+E-08-07,8,spot,0.55,Naming the sword,"A small sword stuck point-down in the moss, gleaming, beside a broken strand of web."
+E-08-08,8,spot,0.65,Silk bundles,"Bundles wrapped in grey silk hanging from a branch, comic and not scary."
+E-08-09,8,spot,0.72,A cross spider,"A big round cartoonish spider with many eyes looking cross and confused, not frightening."
+E-08-10,8,margin,0.8,Webs and dew,Strands of silvery web with dewdrops running down the margin.
+E-08-11,8,tail,1.0,A broken web,A tailpiece of a torn cobweb between two twigs with a small stone caught in it.
+E-09-01,9,vignette,0.05,Bridge to the halls,A narrow stone bridge over a dark river to great carved cave doors with torches.
+E-09-02,9,spot,0.2,A dungeon door,A heavy wooden cell door with an iron grille and a lantern beside it.
+E-09-03,9,spot,0.3,The butler's keys,A great iron ring of keys on a belt.
+E-09-04,9,spot,0.42,Wine flagons,Two empty wine flagons and goblets tipped over on a table.
+E-09-05,9,margin,0.52,Stacked barrels,"A tall stack of wine barrels in a vaulted cellar, running down the margin."
+E-09-06,9,spot,0.6,Straw and a lid,A barrel with straw poking out and a lid being hammered on.
+E-09-07,9,spot,0.7,The trapdoor,An open trapdoor in a cellar floor with water glinting below.
+E-09-08,9,margin,0.82,River and reeds,"Rushing river water with reeds, a heron and a barrel bobbing past."
+E-09-09,9,tail,1.0,Barrels ashore,A tailpiece of three wet barrels resting on a pebbly shore with reeds.
+E-10-01,10,vignette,0.08,Town on stilts,"Wooden houses on tall stilts over a misty lake, seen from the shore."
+E-10-02,10,spot,0.25,A lake boat,A long wooden boat with oars and a lantern moored to a post.
+E-10-03,10,spot,0.4,Old songs,"A harp and a scroll of old songs on a bench, a candle beside them."
+E-10-04,10,spot,0.55,A feast,"A great platter of fish, bread and fruit with goblets on a long table."
+E-10-05,10,spot,0.7,A dreadful cold,"A handkerchief, a steaming mug and a pair of slippers by a fire."
+E-10-06,10,margin,0.85,Flags and lanterns,"Bunting, flags and lanterns strung along a wooden walkway."
+E-10-07,10,tail,1.0,The lonely mountain,"A tailpiece of a single distant mountain across water, a few birds."
+E-11-01,11,margin,0.1,Desolation,"Bare, burned tree stumps and stones climbing the margin, one brave green shoot."
+E-11-02,11,spot,0.2,Ruined town,Broken towers and houses of a ruined town in a valley.
+E-11-03,11,spot,0.35,The grassy ledge,"A small grassy ledge with packs, a smooth rock wall behind."
+E-11-04,11,spot,0.5,Chipping at rock,Picks and mattocks lying beside a scratched rock wall.
+E-11-05,11,spot,0.6,A thrush and a snail,A speckled thrush with a snail beside a grey stone (the snail motif).
+E-11-06,11,spot,0.8,The keyhole,"A keyhole revealed in smooth rock, lit red-gold by the setting sun."
+E-11-07,11,tail,1.0,Key and moss,A tailpiece of an old key lying on a mossy stone with a snail shell.
+E-12-01,12,margin,0.08,The long tunnel,"A tunnel sloping downwards into a faint red glow, running down the margin."
+E-12-02,12,spot,0.25,Gold coins,"A spill of gold coins, a crown and jewels catching warm light."
+E-12-03,12,spot,0.35,The two-handled cup,A large golden two-handled cup with engraved patterns.
+E-12-04,12,spot,0.48,A wisp of smoke,A curl of smoke and a few sparks rising from a dark cave mouth.
+E-12-05,12,spot,0.6,One open eye,"A single huge red-gold eye half-open, a reflection of gold in it, majestic not frightening."
+E-12-06,12,spot,0.72,The bare patch,A jewel-crusted dragon's belly with one bare patch where a gem is missing.
+E-12-07,12,spot,0.85,Scorched ledge,Scorched grass and smoking stones on a mountain ledge.
+E-12-08,12,tail,1.0,Treasure tailpiece,"A tailpiece of goblets, coins and a jewelled crown in a small heap."
+E-13-01,13,spot,0.1,A flickering torch,A torch with a small flickering flame in darkness.
+E-13-02,13,spot,0.25,The great white gem,A large white gem glowing like a star with soft rays of light.
+E-13-03,13,spot,0.45,A mail-coat,A small shining silver mail-coat laid out with a plumed helmet.
+E-13-04,13,margin,0.58,Carved pillars,Tall carved dwarf pillars and broken stairs running up the margin.
+E-13-05,13,spot,0.7,Old dwarf tools,"Ancient hammers, chisels and lanterns on a dusty workbench."
+E-13-06,13,spot,0.85,A raven's lookout,An old stone look-out post above a river valley with a raven perched on it.
+E-13-07,13,tail,1.0,Helmet and shield,A tailpiece of a dwarf helmet resting on a small round shield.
+E-14-01,14,margin,0.1,Bells and lanterns,"Bells ringing and lanterns swinging on wooden posts, running down the margin."
+E-14-02,14,spot,0.25,Fiery sky,"A red glow over dark water at night, sparks drifting down."
+E-14-03,14,spot,0.4,A thrush whispering,A speckled thrush perched on a gloved hand beside a great bow.
+E-14-04,14,spot,0.5,The black arrow,"A single black-feathered arrow, its point gleaming."
+E-14-05,14,vignette,0.62,Steam over the lake,"Great clouds of steam and sparks rising over a dark lake, no figures."
+E-14-06,14,spot,0.8,Shelter by the shore,"Tents, campfires and cooking pots on a lake shore at dawn."
+E-14-07,14,tail,1.0,Bow and quiver,A tailpiece of a yew longbow and quiver lying among reeds.
+E-15-01,15,spot,0.1,An old raven,"An ancient, bedraggled raven on a stone, looking wise."
+E-15-02,15,margin,0.25,Birds on the wing,Flocks of birds streaming up the margin against grey cloud.
+E-15-03,15,spot,0.45,Building the wall,Stones stacked in a rough wall with a trowel and a bucket of mortar.
+E-15-04,15,spot,0.6,Banners in the valley,"Banners and tents seen far below in a valley, small and distant."
+E-15-05,15,spot,0.75,A herald's horn,A brass horn with a tasselled cord resting on a stone.
+E-15-06,15,tail,1.0,Campfires at dusk,A tailpiece of three small campfires glowing at dusk under a crescent moon.
+E-16-01,16,spot,0.15,A rope over the wall,A knotted rope hanging down a stone wall under stars.
+E-16-02,16,margin,0.35,Stars and river,"A starry sky above a winding river, running down the margin."
+E-16-03,16,spot,0.6,The gem unwrapped,A glowing white gem being unwrapped from a cloth on a camp table by lantern light.
+E-16-04,16,spot,0.85,A wizard's hat,A tall pointed blue hat and a wooden staff leaning in a tent corner.
+E-16-05,16,tail,1.0,Lantern and cloak,A tailpiece of a lantern and a folded cloak by a tent flap.
+E-17-01,17,spot,0.1,A dwarf army's shields,"A row of round dwarf shields and mattocks, glinting."
+E-17-02,17,margin,0.3,Storm clouds,"Dark, rolling storm clouds with shafts of light, running up the margin."
+E-17-03,17,spot,0.5,A lookout hill,"A rocky hilltop with a small figure in a helmet watching, the valley below."
+E-17-04,17,spot,0.75,The eagles come,A line of great eagles silhouetted against gold-lit clouds.
+E-17-05,17,spot,0.9,A dented helmet,A small dented helmet lying in the heather with a stone beside it.
+E-17-06,17,tail,1.0,After the storm,A tailpiece of a sprig of heather and a fallen eagle feather in clear light.
+E-18-01,18,spot,0.15,Candle in a tent,A single candle burning beside a folded blue hood with a silver tassel.
+E-18-02,18,spot,0.3,A memorial stone,A plain stone in a quiet hall with flowers laid upon it.
+E-18-03,18,spot,0.5,Two small chests,Two small wooden chests of treasure strapped to a pony's saddle.
+E-18-04,18,margin,0.65,Spring blossom,"Hawthorn and apple blossom on a branch, running down the margin."
+E-18-05,18,vignette,0.8,Yule in the hall,"Garlands, a Yule log and a long table in a timber hall, snow at the door."
+E-18-06,18,margin,0.95,The road home,"A winding green road through spring hedges, running up the margin."
+E-18-07,18,tail,1.0,Pack and stick,"A tailpiece of a travel pack, a walking stick and a sprig of spring flowers."
+E-19-01,19,spot,0.1,Elves singing,Lanterns among valley trees at night with stars and a waterfall.
+E-19-02,19,spot,0.25,Digging up gold,A spade and a pot of gold coins dug up from under a tree's roots.
+E-19-03,19,vignette,0.45,The auction,"Furniture, clocks, umbrellas and chairs spread across a garden lawn with a sale sign that has no letters."
+E-19-04,19,spot,0.55,Teaspoons missing,A velvet-lined box with several silver teaspoons missing.
+E-19-05,19,spot,0.7,Writing memoirs,"A writing desk with a quill, an inkpot and a growing stack of handwritten pages, a map pinned above."
+E-19-06,19,spot,0.8,A sword over the mantel,A small sword hanging over a mantelpiece beside a clock.
+E-19-07,19,spot,0.9,Tea for three,"A teapot, three cups and a plate of cake by a fireside."
+E-19-08,19,tail,1.0,The round door again,"A final tailpiece of a round green door with a brass knob, roses around it and a snail on the step."
